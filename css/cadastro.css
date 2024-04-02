@@ -1,0 +1,24 @@
+form {
+  text-align: center;
+  margin-top: 50px;
+}
+
+input {
+  margin-top: 15px;
+  padding: 10px; 
+  border-radius: 5px; 
+  border: 1px solid #ccc; 
+}
+
+button[type="submit"] {
+  border-radius: 15px;
+  width: 200px;
+  font-size: 30px;
+  margin-top: 35px;
+  background-color: #FFB525; 
+  color: #000; 
+  border: none; 
+  cursor: pointer; 
+  transition: background-color 0.3s;
+}
+

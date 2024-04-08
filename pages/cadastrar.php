@@ -1,3 +1,8 @@
+<?php
+    require_once "header.php"
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,24 +12,37 @@
     <link rel="stylesheet" href="../css/cadastro.css">
 </head>
 <body>
-    <form method="post" action="../cadastro.php" onsubmit="return validarForm()">
-        Nome: <input type="text" name="name" required><br>
-        E-mail: <input type="email" name="email" required><br>
-        Senha: <input type="password" id="password" name="password" required><br> 
-        Confirmar Senha: <input type="password" id="confirm_password" required><br> 
-        <button type="submit">Cadastrar</button>
+    <form method="post" action="../cadastro.php" class="form" onsubmit="return validateForm()">
+        <div class="form-group">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirmação de Senha:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </div>
+        <div class="button">
+            <button type="submit">Cadastrar</button>
+        </div>
     </form>
 
     <script>
-        function validarForm() {
+        function validateForm() {
             var password = document.getElementById("password").value;
-            var confirm_password = document.getElementById("confirm_password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
 
-            if (password != confirm_password) {
+            if (password != confirmPassword) {
                 alert("As senhas não coincidem!");
                 return false;
             }
-
             return true;
         }
     </script>

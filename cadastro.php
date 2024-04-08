@@ -6,7 +6,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = isset($_POST["name"]) ? trim($_POST["name"]) : '';
     $email = isset($_POST["email"]) ? trim($_POST["email"]) : '';
     $password = isset($_POST["password"]) ? trim($_POST["password"]) : '';
-    $tipoUsuario = "comum"; 
 
     // Verifica se todos os campos obrigatórios estão preenchidos
     if(empty($name) || empty($email) || empty($password)){
@@ -20,15 +19,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt_check->execute([$email]);
         $existing_user = $stmt_check->fetch(PDO::FETCH_ASSOC);
         $stmt_check->closeCursor(); 
-
         if ($existing_user) {
             echo "Usuário já existe";
         } else {
-            // Insere o novo usuário 
-            $sql = "INSERT INTO usuario (uuid, name, email, password, tipoUsuario) VALUES (?, ?, ?, ?, ?)";
+            // Insere o novo usuário com UUID
+            $sql = "INSERT INTO usuario (uuid, name, email, password) VALUES (?, ?, ?, ?)";
             $stmt = $pdo->prepare($sql);
 
-            if ($stmt->execute([$uuid, $name, $email, $hashed_password, $tipoUsuario])) {
+            if ($stmt->execute([$uuid, $name, $email, $hashed_password])) {
                 echo "Usuário criado";
             } else {
                 echo "Erro ao criar usuário";
@@ -38,5 +36,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-$pdo = null; 
+$pdo = null;
 ?>

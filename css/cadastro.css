@@ -4,38 +4,58 @@
   box-sizing: border-box;
 }
 
-form {
+.form {
   max-width: 300px;
-  margin: 0 auto; 
+  margin: 0 auto;
+  padding: 20px; 
 }
-
 
 .form-group {
-  margin-bottom: 15px; 
+  margin-bottom: 15px;
 }
 
-form input[type="text"],
-form input[type="email"],
-form input[type="password"] {
-  width: 100%; 
-  padding: 5px; 
+.form-group .input-label {
+  display: block; 
 }
 
-form button {
-  width: auto;
-  cursor: pointer; 
-  background-color: #FFB525;
-  color: #000; 
-  border: none;
-  padding: 10px 20px; 
-  border-radius: 5px; 
-  font-size: 16px;
+.form-group .input-container {
+  position: relative;
 }
 
-.button{
+.form-group .input-field {
+  width: calc(100% - 30px);
+  padding: 10px; 
+  margin-top: 5px;
+  padding-left: 30px; 
+}
+
+.form-group .input-field::placeholder {
+  color: #aaa; 
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%; 
+  left: 10px; 
+  transform: translateY(-50%); 
+}
+
+.button {
   text-align: center;
 }
 
-form button:hover {
+.button button {
+  width: 60%;
+  cursor: pointer;
+  background-color: #FFB525;
+  color: #000;
+  border: none;
+  padding: 10px; 
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.button button:hover {
   background-color: #FFA200;
 }

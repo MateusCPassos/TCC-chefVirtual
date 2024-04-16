@@ -15,6 +15,7 @@
         <li><a href="index.php">logo</a></li>
         <li><a href="favoritos.php">favoritos</a></li>
         <li><a href="cadastrar.php">cadastrar</a></li>
+        <li><a href="cadastrarReceitas.php">cadastrar receitas</a></li>
       </ul>
     </nav>
   </header>

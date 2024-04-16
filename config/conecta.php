@@ -19,13 +19,13 @@
 
     // Verifica se a conexão foi bem-sucedida
     if ($pdo) {
-        echo "Conexão bem-sucedida!";
+       // echo "Conexão bem-sucedida!";
         // verefica falha
     } else {
-        echo "Falha ao conectar ao banco de dados.";
+        //echo "Falha ao conectar ao banco de dados.";
     }
 } catch (Exception $e) {
-    echo "Erro ao conectar no banco de dados {$e->getMessage()}";
+    //echo "Erro ao conectar no banco de dados {$e->getMessage()}";
     exit;
 }
 ?>

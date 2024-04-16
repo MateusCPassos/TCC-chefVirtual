@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../fontawesome/css/all.min.css">
 </head>
 <body>
+    <h1>cadastrar</h1>
     <form method="post" action="../cadastro.php" class="form" onsubmit="return validateForm()">
         <div class="form-group">
             <label for="name" class="input-label">Nome:</label>
@@ -45,6 +46,10 @@
             <button type="submit">Cadastrar</button>
         </div>
     </form>
+
+    <div class="login">
+        <p> possui cadastro?</p><a href="login.php">Login</a>
+    </div>
 
     <script>
         function validateForm() {

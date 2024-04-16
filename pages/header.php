@@ -14,6 +14,7 @@
         <li><a href="categoria.php">categoria</a></li>
         <li><a href="index.php">logo</a></li>
         <li><a href="favoritos.php">favoritos</a></li>
+        <li><a href="cadastrar.php">cadastrar</a></li>
       </ul>
     </nav>
   </header>

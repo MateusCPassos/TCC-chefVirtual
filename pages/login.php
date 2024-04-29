@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($result) {
     if (password_verify($password, $result['password'])) {
       $_SESSION["loggedin"] = true;
+      $_SESSION["uuid"] = $result['uuid'];
       header("Location: index.php");
       exit;
     } else {

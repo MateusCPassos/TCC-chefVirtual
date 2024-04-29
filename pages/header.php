@@ -5,17 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>header</title>
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <style>
+        .close-button {
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
   <header>
-    <nav>
-      <ul>
-        <li><a href="index.php">Inicio</a></li>
-        <li><a href="categoria.php">categoria</a></li>
-        <li><a href="index.php">logo</a></li>
-        <li><a href="favoritos.php">favoritos</a></li>
-        <li><a href="cadastrar.php">cadastrar</a></li>
-        <li><a href="cadastrarReceitas.php">cadastrar receitas</a></li>
-      </ul>
+    <nav class="nav-bar">
+      <div class="logo">
+        <h1>ChefVirtual</h1>
+      </div>
+
+      <div class="nav-list">
+        <ul>
+          <li class="nav-item"><a href="index.php" class="nav-link">Início</a></li>
+          <li class="nav-item"><a href="categoria.php" class="nav-link">Categoria</a></li>
+          <li class="nav-item"><a href="favorito.php" class="nav-link">Favoritos</a></li>
+        </ul>
+      </div>
+      <div class="menu-icon">
+        <i class="fa-solid fa-bars"></i>
+      </div>
     </nav>
+    
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <i class="fa-solid fa-arrow-right close-button"></i>
+      </div>
+      <ul class="sidebar-list">
+        <li><a href="cadastrar.php" class="sidebar-link">Cadastrar</a></li>
+        <li><a href="cadastrarReceitas.php" class="sidebar-link">Cadastrar Receitas</a></li>
+      </ul>
+    </aside>
+  
   </header>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const menuIcon = document.querySelector(".menu-icon");
+      const sidebar = document.querySelector(".sidebar");
+      const closeButton = document.querySelector(".close-button");
+
+      menuIcon.addEventListener("click", function() {
+        sidebar.classList.toggle("active"); 
+      });
+
+      
+      closeButton.addEventListener("click", function() {
+        sidebar.classList.remove("active"); 
+      });
+    });
+  </script>
+</body>
+</html>

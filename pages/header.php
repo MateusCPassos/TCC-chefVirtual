@@ -7,13 +7,6 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../css/sidebar.css">
-    <style>
-        .close-button {
-            color: #fff;
-            font-size: 24px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
   <header>
@@ -26,7 +19,7 @@
         <ul>
           <li class="nav-item"><a href="index.php" class="nav-link">Início</a></li>
           <li class="nav-item"><a href="categoria.php" class="nav-link">Categoria</a></li>
-          <li class="nav-item"><a href="favorito.php" class="nav-link">Favoritos</a></li>
+          <li class="nav-item"><a href="favoritos.php" class="nav-link">Favoritos</a></li>
         </ul>
       </div>
       <div class="menu-icon">
@@ -41,6 +34,10 @@
       <ul class="sidebar-list">
         <li><a href="cadastrar.php" class="sidebar-link">Cadastrar</a></li>
         <li><a href="cadastrarReceitas.php" class="sidebar-link">Cadastrar Receitas</a></li>
+        <li><a href="minhasReceitas.php" class="sidebar-link">Minhas Receitas</a></li>
+        <?php if(isset($_SESSION['id']) && !empty($_SESSION['id'])): ?>
+            <li><a href="../logout.php" class="sidebar-link">Sair</a></li>
+        <?php endif; ?>
       </ul>
     </aside>
   

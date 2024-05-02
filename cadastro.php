@@ -15,7 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "A senha deve ter pelo menos 6 caracteres.";
         } else {
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            $uuid = uniqid(); // Gera um UUID único
 
             // Verifica se o usuário já existe
             $stmt_check = $pdo->prepare("SELECT * FROM usuario WHERE email = ?");
@@ -25,14 +24,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($existing_user) {
                 echo "Este e-mail já está sendo utilizado.";
             } else {
-                // Insere o novo usuário com UUID e define o tipo como "comum"
-                $sql = "INSERT INTO usuario (uuid, name, email, password, tipoUsuario) VALUES (?, ?, ?, ?, ?)";
+                // Insere o novo usuário
+                $sql = "INSERT INTO usuario (nome, email, senha, tipoUsuario) VALUES (?, ?, ?, ?)";
                 $stmt = $pdo->prepare($sql);
 
                 // Define o tipo de usuário como "comum"
                 $tipoUsuario = "comum";
 
-                if ($stmt->execute([$uuid, $name, $email, $hashed_password, $tipoUsuario])) {
+                if ($stmt->execute([$name, $email, $hashed_password, $tipoUsuario])) {
                     header("Location: pages/index.php");
                     exit(); 
                 } else {
@@ -46,4 +45,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $pdo = null;
 ?>
-

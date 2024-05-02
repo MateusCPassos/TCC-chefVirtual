@@ -1,32 +1,29 @@
 <?php
 session_start();
-
 require_once "../config/conecta.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-  $password = $_POST['password'];
+    $email = isset($_POST["email"]) ? trim($_POST["email"]) : '';
+    $password = isset($_POST["password"]) ? trim($_POST["password"]) : '';
 
-  $sql = "SELECT * FROM usuario WHERE email = ?";
+    $sql = "SELECT * FROM usuario WHERE email = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$email]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-  $stmt = $pdo->prepare($sql);
-  $stmt->execute([$email]);
-  $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-  if ($result) {
-    if (password_verify($password, $result['password'])) {
-      $_SESSION["loggedin"] = true;
-      $_SESSION["uuid"] = $result['uuid'];
-      header("Location: index.php");
-      exit;
+    if ($user) {
+        if (password_verify($password, $user['senha'])) {
+            $_SESSION["loggedin"] = true;
+            $_SESSION["id"] = $user['id'];
+            header("Location: index.php");
+            exit;
+        } else {
+            $error = "Senha incorreta.";
+        }
     } else {
-      echo "Senha incorreta.";
+        $error = "E-mail não encontrado.";
     }
-  } else {
-    echo "E-mail não encontrado.";
-  }
 }
-
 ?>
 
 <?php

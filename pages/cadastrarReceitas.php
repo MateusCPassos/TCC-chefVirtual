@@ -8,7 +8,7 @@
   $options = "";
   
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-      $options .= "<option value=\"{$row['uuid']}\">{$row['nomeCategoria']}</option>";
+      $options .= "<option value=\"{$row['id']}\">{$row['nomeCategoria']}</option>";
   }
   
   $pdo = null;
@@ -34,25 +34,13 @@
     </div>
 
     <div class="form-group">
-      <label for="ingredients" class="input-label">Ingredientes:</label>
-      <div class="input-container">
-        <textarea id="ingredients" name="ingredients" required class="input-field" rows="4" placeholder="ex: sal, farinha"></textarea>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="materials" class="input-label">Materiais Necessários:</label>
-      <div class="input-container">
-        <textarea id="materials" name="materials" required class="input-field" rows="4" placeholder="ex: panela, faca"></textarea>
-      </div>
-    </div>
-
-    <div class="form-group">
       <label for="modePreparation" class="input-label">Modo de Preparo:</label> 
       <div class="input-container">
         <textarea id="modePreparation" name="modePreparation" required class="input-field" rows="6" placeholder="ex: Modo de preparo"></textarea>
       </div>
     </div>
+
+
 
     <div class="form-group">
       <label for="price" class="input-label">Preço:</label>

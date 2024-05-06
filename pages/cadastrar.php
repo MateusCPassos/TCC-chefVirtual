@@ -1,9 +1,10 @@
 <?php
-    require_once "header.php"
+require_once "header.php"
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="../css/cadastro.css">
     <link rel="stylesheet" href="../fontawesome/css/all.min.css">
 </head>
+
 <body>
     <h1>cadastrar</h1>
     <form method="post" action="../cadastro.php" class="form" onsubmit="return validateForm()">
@@ -66,7 +68,8 @@
                 alert("A senha deve ter pelo menos 6 caracteres!");
                 return false;
             }
-    }
+        }
     </script>
 </body>
+
 </html>

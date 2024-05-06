@@ -41,7 +41,7 @@
         <button type="submit">Salvar Materiais</button>
     </form>
 
-    <h2>Ingredientes cadastrados:</h2>
+    <h2>Materiais cadastrados:</h2>
     <?php
     $sql = "select m.id, m.nomeMaterial, mp.prato_id from materiais_has_prato mp
         inner join materiais m on (m.id = mp.materiais_id)
@@ -58,6 +58,7 @@
     }
 
     ?>
+    <a href="cadastrarReceitas3.php?recipe_id=<?php echo $recipe_id; ?>" class="btn-continuar">Continuar</a>
 </body>
 
 </html>

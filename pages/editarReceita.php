@@ -30,7 +30,7 @@ if (isset($_GET['recipe_id'])) {
             }
 
 
-            ?>
+?>
             <h2>Editar Receita</h2>
             <form action="../atualizarReceita.php" method="post">
                 <input type="hidden" name="recipe_id" value="<?php echo $recipe_id; ?>">
@@ -62,7 +62,7 @@ if (isset($_GET['recipe_id'])) {
                 </div>
                 <button type="submit">Atualizar Receita</button>
             </form>
-            <?php
+<?php
         } else {
             echo "Você não tem permissão para editar esta receita.";
         }
@@ -73,19 +73,22 @@ if (isset($_GET['recipe_id'])) {
     echo "ID da receita não foi especificado.";
 }
 
-$pdo = null; 
+$pdo = null;
 ?>
 
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Receita</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
 
 </body>
+
 </html>

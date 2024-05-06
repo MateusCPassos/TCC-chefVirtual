@@ -1,22 +1,23 @@
 <?php
-   session_start();
-  require_once "../config/conecta.php";
- 
-  $sql = "SELECT * FROM categoria";
-  $stmt = $pdo->query($sql);
-  
-  $options = "";
-  
-  while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-      $options .= "<option value=\"{$row['id']}\">{$row['nomeCategoria']}</option>";
-  }
-  
-  $pdo = null;
-  require_once "header.php";
-?> 
+session_start();
+require_once "../config/conecta.php";
+
+$sql = "SELECT * FROM categoria";
+$stmt = $pdo->query($sql);
+
+$options = "";
+
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+  $options .= "<option value=\"{$row['id']}\">{$row['nomeCategoria']}</option>";
+}
+
+$pdo = null;
+require_once "header.php";
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +25,7 @@
   <link rel="stylesheet" href="../css/cadastro.css">
   <link rel="stylesheet" href="../fontawesome/css/all.min.css">
 </head>
+
 <body>
   <form method="post" action="../cadastroReceitas.php" class="form" onsubmit="return validateForm()">
     <div class="form-group">
@@ -34,7 +36,7 @@
     </div>
 
     <div class="form-group">
-      <label for="modePreparation" class="input-label">Modo de Preparo:</label> 
+      <label for="modePreparation" class="input-label">Modo de Preparo:</label>
       <div class="input-container">
         <textarea id="modePreparation" name="modePreparation" required class="input-field" rows="6" placeholder="ex: Modo de preparo"></textarea>
       </div>
@@ -46,7 +48,7 @@
       <label for="price" class="input-label">Preço:</label>
       <div class="input-container">
         <input type="text" id="price" name="price" required class="input-field" placeholder="ex: R$ 35.00">
-      </div> 
+      </div>
     </div>
 
     <div class="form-group">
@@ -55,7 +57,7 @@
         <input type="text" id="timePreparation" name="timePreparation" required class="input-field" placeholder="ex: 1h25min">
       </div>
     </div>
-    
+
     <div class="form-group">
       <label for="comments" class="input-label">Observações:</label>
       <div class="input-container">
@@ -78,4 +80,5 @@
     </div>
   </form>
 </body>
+
 </html>

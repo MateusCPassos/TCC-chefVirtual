@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>header</title>
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../css/sidebar.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>header</title>
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="../css/sidebar.css">
 </head>
+
 <body>
   <header>
     <nav class="nav-bar">
@@ -26,7 +28,7 @@
         <i class="fa-solid fa-bars"></i>
       </div>
     </nav>
-    
+
     <aside class="sidebar">
       <div class="sidebar-header">
         <i class="fa-solid fa-arrow-right close-button"></i>
@@ -35,12 +37,12 @@
         <li><a href="cadastrar.php" class="sidebar-link">Cadastrar</a></li>
         <li><a href="cadastrarReceitas.php" class="sidebar-link">Cadastrar Receitas</a></li>
         <li><a href="minhasReceitas.php" class="sidebar-link">Minhas Receitas</a></li>
-        <?php if(isset($_SESSION['id']) && !empty($_SESSION['id'])): ?>
-            <li><a href="../logout.php" class="sidebar-link">Sair</a></li>
+        <?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) : ?>
+          <li><a href="../logout.php" class="sidebar-link">Sair</a></li>
         <?php endif; ?>
       </ul>
     </aside>
-  
+
   </header>
 
   <script>
@@ -50,14 +52,15 @@
       const closeButton = document.querySelector(".close-button");
 
       menuIcon.addEventListener("click", function() {
-        sidebar.classList.toggle("active"); 
+        sidebar.classList.toggle("active");
       });
 
-      
+
       closeButton.addEventListener("click", function() {
-        sidebar.classList.remove("active"); 
+        sidebar.classList.remove("active");
       });
     });
   </script>
 </body>
+
 </html>

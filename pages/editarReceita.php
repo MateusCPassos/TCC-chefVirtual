@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "../config/conecta.php";
 require_once "header.php";
 
@@ -7,9 +8,10 @@ if (isset($_GET['recipe_id'])) {
     $recipe_id = $_GET['recipe_id'];
 
     // Consulta os detalhes da receita no banco de dados
-    $sql = "SELECT * FROM prato WHERE id = ?";
+    $sql = "SELECT * FROM prato WHERE id = ? AND usuario_id = ?";
     $stmt = $pdo->prepare($sql);
-    if ($stmt->execute([$recipe_id])) {
+    $user_id = $_SESSION['id'];
+    if ($stmt->execute([$recipe_id, $user_id])) {
         if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $name = $row['nome'];
             $modePreparation = $row['modoPreparo']; // Ajustado para modoPreparo
@@ -62,7 +64,7 @@ if (isset($_GET['recipe_id'])) {
             </form>
             <?php
         } else {
-            echo "Receita não encontrada.";
+            echo "Você não tem permissão para editar esta receita.";
         }
     } else {
         echo "Erro ao consultar a receita.";
@@ -73,6 +75,7 @@ if (isset($_GET['recipe_id'])) {
 
 $pdo = null; 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">

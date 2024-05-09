@@ -80,6 +80,9 @@ require_once "header.php";
                 </div>
             <?php endif; ?>
         </section>
+        <?php
+        require_once 'footer.php';
+        ?>
     </main>
 </body>
 

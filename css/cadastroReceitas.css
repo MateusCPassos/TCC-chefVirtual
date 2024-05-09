@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
+.form {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.input-label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.input-container {
+  margin-bottom: 15px;
+}
+
+textarea.input-field {
+  resize: vertical;
+}
+
+.buttonRecipe {
+  text-align: center;
+}
+
+.buttonRecipe button {
+  padding: 10px 20px;
+  background-color: #FFB525;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.buttonRecipe button:hover {
+  background-color: #FFA200;
+}

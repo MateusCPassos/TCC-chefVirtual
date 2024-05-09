@@ -35,7 +35,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `chefVirtual`.`prato` (
   `id` INT AUTO_INCREMENT NOT NULL,
   `nome` VARCHAR(120) NOT NULL,
-  `descricao` VARCHAR(150) NOT NULL,
+  `modoPreparo` VARCHAR(150) NOT NULL,
   `custo` FLOAT NOT NULL,
   `tempoPreparo` VARCHAR(45) NOT NULL,
   `observacoes` VARCHAR(150) NULL,

@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Materiais</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/cadastroReceitas2.css">
+
 </head>
 
 <body>
@@ -15,6 +16,7 @@
 
     $recipe_id = $_GET["recipe_id"] ?? '';
     ?>
+    <div class="campo">
     <h2>Cadastro de Materiais</h2>
     <form action="../cadastroReceitas2.php" method="post">
         <div class="form-group">
@@ -41,7 +43,7 @@
         <button type="submit">Salvar Materiais</button>
     </form>
 
-    <h2>Materiais cadastrados:</h2>
+    <h3>Materiais cadastrados:</h3>
     <?php
     $sql = "select m.id, m.nomeMaterial, mp.prato_id from materiais_has_prato mp
         inner join materiais m on (m.id = mp.materiais_id)
@@ -59,6 +61,7 @@
 
     ?>
     <a href="cadastrarReceitas3.php?recipe_id=<?php echo $recipe_id; ?>" class="btn-continuar">Continuar</a>
+    </div>
 </body>
 
 </html>

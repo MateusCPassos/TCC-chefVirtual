@@ -22,7 +22,7 @@ require_once "header.php";
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastrar Receitas</title>
-  <link rel="stylesheet" href="../css/cadastro.css">
+  <link rel="stylesheet" href="../css/cadastroReceitas.css">
   <link rel="stylesheet" href="../fontawesome/css/all.min.css">
 </head>
 
@@ -52,16 +52,16 @@ require_once "header.php";
     </div>
 
     <div class="form-group">
-      <label for="timePreparation" class="input-label">Tempo de Preparo:</label>
+      <label for="timePreparation" class="input-label">Tempo de Preparo em minutos:</label>
       <div class="input-container">
-        <input type="text" id="timePreparation" name="timePreparation" required class="input-field" placeholder="ex: 1h25min">
+        <input type="text" id="timePreparation" name="timePreparation" required class="input-field" placeholder="ex: 120">
       </div>
     </div>
 
     <div class="form-group">
       <label for="comments" class="input-label">Observações:</label>
       <div class="input-container">
-        <input type="text" id="comments" name="comments" required class="input-field" placeholder="ex: Observações">
+      <textarea type="text" id="comments" name="comments" required class="input-field" placeholder="ex: Observações"></textarea>
       </div>
     </div>
 

@@ -1,3 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Receita</title>
+    <link rel="stylesheet" href="../css/editarReceita.css">
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
 <?php
 session_start();
 require_once "../config/conecta.php";
@@ -75,20 +92,3 @@ if (isset($_GET['recipe_id'])) {
 
 $pdo = null;
 ?>
-
-
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Receita</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-
-<body>
-
-</body>
-
-</html>

@@ -28,6 +28,7 @@ img{
 
 h2 {
   margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
   font-size: 2.0rem;
 }
@@ -66,38 +67,35 @@ img {
   color: #fff;
   background-color: #FFB525;
   border-radius: 5px;
-  margin: 0 5px;
+  margin-bottom: 15px;
 }
 
-/* Estilo para cada item de receita */
 .receita {
+  margin: 20px;
   list-style-type: none;
   margin-bottom: 20px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
+  width: 300px;
 }
 
-/* Estilo para o link do nome da receita */
 .receita h3 a {
   text-decoration: none;
   color: #333;
   font-weight: bold;
 }
 
-/* Estilo para os parágrafos */
 .receita p {
   margin-top: 5px;
   color: #666;
 }
 
-/* Estilo para o custo */
 .receita .custo {
   color: #007bff;
 }
 
-/* Estilo para o tempo de preparo */
 .receita .tempo-preparo {
   color: #28a745;
 }

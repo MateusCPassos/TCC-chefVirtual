@@ -12,7 +12,7 @@ if (isset($_GET['recipe_id'])) {
     if ($stmt->execute([$recipe_id])) {
         if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $name = $row['nome'];
-            $description = $row['modoPreparo']; // Ajustado para modoPreparo
+            $description = $row['modoPreparo'];
             $cost = $row['custo'];
             $preparation_time = $row['tempoPreparo'];
             $observations = $row['observacoes'];
@@ -69,8 +69,9 @@ if (isset($_GET['recipe_id'])) {
 <?php
             }
 
-            echo '<a href="editarReceita.php?recipe_id=' . $recipe_id . '">Editar Receita</a>';
+            echo '<a href="editarReceita.php?recipe_id=' . $recipe_id . '">alterar informações da receita</a>';
             echo '<a href="cadastrarReceitas2.php?recipe_id=' . $recipe_id . '">Alterar Materiais Receita</a>';
+            echo '<a href="cadastrarReceitas3.php?recipe_id=' . $recipe_id . '">Alterar indredients Receita</a>';
         } else {
             echo "Receita não encontrada.";
         }

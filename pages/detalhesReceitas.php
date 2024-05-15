@@ -49,7 +49,7 @@ if (isset($_GET['recipe_id'])) {
 
             // Exibe os detalhes da receita
             echo "<h2>$name</h2>";
-            echo "<p>Descrição: $description</p>";
+            echo "<p>Modo Preparo: $description</p>";
             echo "<p>Custo: R$ $cost</p>";
             echo "<p>Tempo de Preparo: $preparation_time</p>";
             echo "<p>Observações: $observations</p>";

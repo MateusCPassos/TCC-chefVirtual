@@ -34,7 +34,16 @@
         <i class="fa-solid fa-arrow-right close-button"></i>
       </div>
       <ul class="sidebar-list">
-        <li><a href="cadastrar.php" class="sidebar-link">Cadastrar</a></li>
+        <?php
+        if (session_status() === PHP_SESSION_NONE) {
+          session_start();
+        }
+
+        if (!isset($_SESSION["id"])) {
+          echo '<li><a href="cadastrar.php" class="sidebar-link">Cadastrar/entrar</a></li>';
+        }
+        ?>
+
         <li><a href="cadastrarReceitas.php" class="sidebar-link">Cadastrar Receitas</a></li>
         <li><a href="minhasReceitas.php" class="sidebar-link">Minhas Receitas</a></li>
         <?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) : ?>

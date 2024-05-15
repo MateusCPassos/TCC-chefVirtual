@@ -25,7 +25,7 @@
         if ($stmt->execute([$recipe_id, $user_id])) {
             if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $name = $row['nome'];
-                $modePreparation = $row['modoPreparo']; // Ajustado para modoPreparo
+                $modePreparation = $row['modoPreparo']; 
                 $cost = $row['custo'];
                 $preparation_time = $row['tempoPreparo'];
                 $observations = $row['observacoes'];

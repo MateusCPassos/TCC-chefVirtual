@@ -7,7 +7,7 @@ if (!isset($_SESSION['id']) || empty($_SESSION['id'])) {
     exit;
 }
 
-$receitas_por_pagina = 10;
+$receitas_por_pagina = 9;
 
 $user_id = $_SESSION['id'];
 $sql_count = "SELECT COUNT(*) AS total FROM prato WHERE usuario_id = ?";

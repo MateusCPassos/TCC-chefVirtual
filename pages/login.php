@@ -66,5 +66,8 @@ include "header.php";
     <P>Não possui cadastro? </p> <a href="cadastrar.php">Cadastrar</a>
   </div>
 </body>
+<?php
+  require_once 'footer.php';
+?>
 
 </html>

@@ -5,11 +5,15 @@ require_once "config/conecta.php";
 // Verifica se o formulário de cadastro foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Verifica se a sessão está iniciada e se o usuário é o dono da receita
+  print_r($_POST);
   if (isset($_SESSION["id"]) && !empty($_POST["recipe_id"])) {
     $recipe_id = $_POST["recipe_id"];
     $user_id = $_SESSION["id"];
-    $ingrediente_id = isset($_POST["ingrediente_id"]) ? $_POST["ingrediente_id"] : '';
+    $ingrediente_id = $_POST["ingredientes_id"] ?? '';
     $quantidade = isset($_POST["quantidade"]) ? $_POST["quantidade"] : '';
+
+    $ingrediente_id = preg_replace("/[^0-9]/", "", $ingrediente_id);
+
 
     // Verifica se o ingrediente já está associado ao prato
     $sql_check_ingrediente = "SELECT * FROM prato_has_indredientes WHERE indredientes_id = ? AND prato_id = ?";
@@ -25,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if (!$stmt_insert_ingrediente->execute([$ingrediente_id, $recipe_id, $quantidade])) {
         echo "Erro ao cadastrar o ingrediente com ID: " . $ingrediente_id;
       } else {
-        echo "<script>location.href='cadastroIngredientes.php?recipe_id=" . $recipe_id . "'</script>";
+        echo "<script>location.href='pages/cadastrarReceitas3.php?recipe_id=" . $recipe_id . "'</script>";
       }
     }
   } else {

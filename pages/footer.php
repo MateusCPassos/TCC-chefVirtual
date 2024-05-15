@@ -8,7 +8,7 @@
 </head>
 <body>
   <footer>
-    <h2>desenvolvido por Mateus</h2>
+    <h2 class="footer">desenvolvido por Mateus</h2>
   </footer>
 </body>
 </html>

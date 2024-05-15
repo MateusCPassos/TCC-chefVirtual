@@ -1,3 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detalhes receita</title>
+    <link rel="stylesheet" href="../css/detalhesReceita.css">
+</head>
+<body>
+    
+</body>
+</html>
+
+
+
+
+
+
 <?php
 require_once "../config/conecta.php";
 require_once "header.php";
@@ -83,4 +101,8 @@ if (isset($_GET['recipe_id'])) {
 }
 
 $pdo = null;
+?>
+
+<?php
+require_once 'footer.php';
 ?>

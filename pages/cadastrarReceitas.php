@@ -27,13 +27,15 @@ require_once "header.php";
 </head>
 
 <body>
-  <form method="post" action="../cadastroReceitas.php" class="form" onsubmit="return validateForm()">
+  <form enctype="multipart/form-data" method="post" action="../cadastroReceitas.php" class="form" onsubmit="return validateForm()">
     <div class="form-group">
       <label for="nameRecipe" class="input-label">Nome da Receita:</label>
       <div class="input-container">
         <input type="text" id="nameRecipe" name="nameRecipe" required class="input-field" placeholder="ex: Sopa de Legumes">
       </div>
     </div>
+
+    <input type="file" name="foto">
 
     <div class="form-group">
       <label for="modePreparation" class="input-label">Modo de Preparo:</label>
@@ -61,7 +63,7 @@ require_once "header.php";
     <div class="form-group">
       <label for="comments" class="input-label">Observações:</label>
       <div class="input-container">
-      <textarea type="text" id="comments" name="comments" required class="input-field" placeholder="ex: Observações"></textarea>
+        <textarea type="text" id="comments" name="comments" required class="input-field" placeholder="ex: Observações"></textarea>
       </div>
     </div>
 

@@ -7,11 +7,13 @@
   font-family: 'Inter', Arial, sans-serif;
 }
 
+body {
+  background-color: #f0f0f0;
+}
+
 h2{
-  color: black;
-  margin-top: 15px;
-  margin-bottom: 15px;
   text-align: center;
+  margin-top: 15px;
 }
 
 .form {
@@ -21,4 +23,49 @@ h2{
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.input-label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.input-container {
+  margin-bottom: 15px;
+}
+
+textarea.input-field {
+  resize: vertical;
+}
+
+.buttonRecipe {
+  padding: 10px 20px;
+  background-color: #FFB525;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  margin-left: auto;
+  margin-right: auto;
+  display: block; 
+}
+
+.buttonRecipe:hover {
+  background-color: #FFA200;
 }

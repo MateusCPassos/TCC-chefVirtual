@@ -13,7 +13,25 @@
     require_once "../config/conecta.php";
     require_once "header.php";
 
+    // Verifica se o usuário está autenticado
+    if (!isset($_SESSION['id']) || empty($_SESSION['id'])) {
+        header("Location: login.php");
+        exit;
+    }
+
     $recipe_id = $_GET["recipe_id"] ?? '';
+
+    // Consulta se a receita pertence ao usuário
+    $sql_check_recipe = "SELECT id FROM prato WHERE id = ? AND usuario_id = ?";
+    $stmt_check_recipe = $pdo->prepare($sql_check_recipe);
+    $stmt_check_recipe->execute([$recipe_id, $_SESSION['id']]);
+    $recipe_exists = $stmt_check_recipe->fetchColumn();
+
+    // Verifica se a receita existe e pertence ao usuário
+    if (!$recipe_id || !$recipe_exists) {
+        echo "receita não pertence ao usuário.";
+        exit;
+    }
     ?>
     <div class="campo">
         <h2>Cadastro de Ingredientes</h2>
@@ -22,7 +40,7 @@
                 <input name="ingredientes_id" list="ingredientes">
                 <datalist id="ingredientes">
                     <?php
-                    $sql = "SELECT * FROM indredientes ORDER BY NomeIndrediente"; 
+                    $sql = "SELECT * FROM indredientes ORDER BY NomeIndrediente";
                     $stmt = $pdo->prepare($sql);
                     $stmt->execute();
 
@@ -36,23 +54,6 @@
                 </datalist>
 
                 <label for="ingrediente">Ingrediente:</label>
-                <!--<select name="ingrediente_id">
-                <option value=""></option>
-                <?php
-                $sql = "SELECT * FROM indredientes ORDER BY NomeIndrediente"; 
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute();
-
-                $ingredientes = $stmt->fetchAll(PDO::FETCH_OBJ);
-
-                foreach ($ingredientes as $ingrediente) {
-                ?>
-                    <option value="<?= $ingrediente->id ?>"><?= $ingrediente->NomeIndrediente ?></option>
-                <?php
-                }
-
-                ?>
-            </select>-->
             </div>
             <div class="form-group">
                 <label for="quantidade">Quantidade:</label>

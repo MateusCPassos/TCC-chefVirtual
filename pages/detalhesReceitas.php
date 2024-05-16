@@ -7,27 +7,25 @@
     <link rel="stylesheet" href="../css/detalhesReceita.css">
 </head>
 <body>
-    
-</body>
-</html>
-
-
-
-
-
-
 <?php
 require_once "../config/conecta.php";
 require_once "header.php";
 
+// Verifica se o usuário está autenticado
+if (!isset($_SESSION['id']) || empty($_SESSION['id'])) {
+    header("Location: login.php");
+    exit;
+}
+
 // Verifica se o ID da receita foi passado via GET
 if (isset($_GET['recipe_id'])) {
     $recipe_id = $_GET['recipe_id'];
+    $user_id = $_SESSION['id']; 
 
     // Consulta os detalhes da receita no banco de dados
-    $sql = "SELECT * FROM prato WHERE id = ?";
+    $sql = "SELECT * FROM prato WHERE id = ? AND usuario_id = ?";
     $stmt = $pdo->prepare($sql);
-    if ($stmt->execute([$recipe_id])) {
+    if ($stmt->execute([$recipe_id, $user_id])) { 
         if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $name = $row['nome'];
             $description = $row['modoPreparo'];
@@ -55,9 +53,8 @@ if (isset($_GET['recipe_id'])) {
             echo "<p>Observações: $observations</p>";
             echo "<p>Categoria: $category_name</p>";
 
-?>
-            <h2>Materiais cadastrados:</h2>
-            <?php
+            // Exibe os materiais cadastrados para a receita
+            echo "<h2>Materiais cadastrados:</h2>";
             $sql_materiais = "SELECT m.id, m.nomeMaterial, mp.prato_id FROM materiais_has_prato mp
                               INNER JOIN materiais m ON (m.id = mp.materiais_id)
                               WHERE mp.prato_id = ? ORDER BY m.nomeMaterial";
@@ -66,14 +63,11 @@ if (isset($_GET['recipe_id'])) {
             $materiais = $stmt_materiais->fetchAll(PDO::FETCH_OBJ);
 
             foreach ($materiais as $material) {
-            ?>
-                <p><?= $material->nomeMaterial ?></p>
-            <?php
+                echo "<p>$material->nomeMaterial</p>";
             }
-            ?>
 
-            <h2>Ingredientes cadastrados:</h2>
-            <?php
+            // Exibe os ingredientes cadastrados para a receita
+            echo "<h2>Ingredientes cadastrados:</h2>";
             $sql_ingredientes = "SELECT i.id, i.NomeIndrediente, pi.quantidade FROM prato_has_indredientes pi
                                  INNER JOIN indredientes i ON (i.id = pi.indredientes_id)
                                  WHERE pi.prato_id = ?";
@@ -82,16 +76,14 @@ if (isset($_GET['recipe_id'])) {
             $ingredientes = $stmt_ingredientes->fetchAll(PDO::FETCH_OBJ);
 
             foreach ($ingredientes as $ingrediente) {
-            ?>
-                <p><?= $ingrediente->NomeIndrediente ?> - <?= $ingrediente->quantidade ?></p>
-<?php
+                echo "<p>$ingrediente->NomeIndrediente - $ingrediente->quantidade</p>";
             }
 
-            echo '<a href="editarReceita.php?recipe_id=' . $recipe_id . '">alterar informações da receita</a>';
+            echo '<a href="editarReceita.php?recipe_id=' . $recipe_id . '">Alterar informações da receita</a>';
             echo '<a href="cadastrarReceitas2.php?recipe_id=' . $recipe_id . '">Alterar Materiais Receita</a>';
-            echo '<a href="cadastrarReceitas3.php?recipe_id=' . $recipe_id . '">Alterar indredients Receita</a>';
+            echo '<a href="cadastrarReceitas3.php?recipe_id=' . $recipe_id . '">Alterar ingredientes Receita</a>';
         } else {
-            echo "Receita não encontrada.";
+            echo "Receita não encontrada ou não pertence ao usuário.";
         }
     } else {
         echo "Erro ao consultar a receita.";
@@ -102,7 +94,11 @@ if (isset($_GET['recipe_id'])) {
 
 $pdo = null;
 ?>
+    
+</body>
+</html>
 
-<?php
-require_once 'footer.php';
-?>
+
+
+
+

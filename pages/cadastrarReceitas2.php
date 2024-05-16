@@ -1,3 +1,28 @@
+<?php
+require_once "../config/conecta.php";
+require_once "header.php";
+
+// Verifica se o usuário está autenticado
+if (!isset($_SESSION['id']) || empty($_SESSION['id'])) {
+    header("Location: login.php");
+    exit;
+}
+
+$recipe_id = $_GET["recipe_id"] ?? '';
+
+// Consulta se a receita pertence ao usuário
+$sql_check_recipe = "SELECT id FROM prato WHERE id = ? AND usuario_id = ?";
+$stmt_check_recipe = $pdo->prepare($sql_check_recipe);
+$stmt_check_recipe->execute([$recipe_id, $_SESSION['id']]);
+$recipe_exists = $stmt_check_recipe->fetchColumn();
+
+// Verifica se a receita existe e pertence ao usuário
+if (!$recipe_id || !$recipe_exists) {
+    echo "ID da receita não foi especificado ou receita não pertence ao usuário.";
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -9,12 +34,6 @@
 </head>
 
 <body>
-    <?php
-    require_once "../config/conecta.php";
-    require_once "header.php";
-
-    $recipe_id = $_GET["recipe_id"] ?? '';
-    ?>
     <div class="campo">
         <h2>Cadastro de Materiais</h2>
         <form action="../cadastroReceitas2.php" method="post">
@@ -50,7 +69,7 @@
         $materiais = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         foreach ($materiais as $material) {
-            ?>
+        ?>
             <p><?= $material->nomeMaterial ?></p>
         <?php
         }

@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+h2{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 2.0rem;
+}
+
+.naoCadastrada{
+  text-align: center;
+}
+
+img{
+  width: 350px;
+}
+
+.txtImg{
+  font-size: 150px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 2.0rem;
+}
+
+.naoCadastrada {
+  text-align: center;
+}
+
+img {
+  width: 350px;
+}
+
+.txtImg {
+  font-size: 30px;
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination a {
+  display: inline-block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
+.pagination .current {
+  display: inline-block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #FFB525;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.receita {
+  margin: 50px;
+  list-style-type: none;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  width: 300px;
+  display: inline-block; 
+}
+
+.receitas ul li {
+  display: inline-block;
+}
+
+.receita h3 a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.receita p {
+  margin-top: 5px;
+  color: #666;
+  text-decoration: none;
+}

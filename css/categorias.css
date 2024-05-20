@@ -16,13 +16,15 @@ h2 {
   list-style: none;
   padding: 0;
   margin: 30px auto;
-  width: 80%;
+  width: 90%;
   text-align: center;
+
 }
 
 .categorias-lista li {
   display: inline-block;
   margin-right: 30px;
+
 }
 
 .categorias-lista li:last-child {

@@ -1,4 +1,9 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once "../config/conecta.php";
+
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     $usuario_id = $_SESSION['id'];
     if(isset($_POST['recipe_id'])) {
@@ -17,9 +22,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
             $stmt_insert->execute([$usuario_id, $recipe_id]);
             echo "Receita adicionada aos favoritos com sucesso.";
         }
-    } else {
-        echo "ID da receita não foi especificado.";
-    }
+    } 
 } else {
     echo "Você precisa estar logado para adicionar aos favoritos.";
 }
+?>

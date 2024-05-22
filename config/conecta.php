@@ -19,7 +19,7 @@
 
     // Verifica se a conexão foi bem-sucedida
     if ($pdo) {
-       // echo "Conexão bem-sucedida!";
+    //echo "Conexão bem-sucedida!";
         // verefica falha
     } else {
         //echo "Falha ao conectar ao banco de dados.";

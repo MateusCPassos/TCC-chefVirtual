@@ -40,16 +40,12 @@ require_once "header.php";
       </div>
     </div>
 
-    <input type="file" name="foto">
-
     <div class="form-group">
       <label for="modePreparation" class="input-label">Modo de Preparo:</label>
       <div class="input-container">
         <textarea id="modePreparation" name="modePreparation" required class="input-field" rows="6" placeholder="ex: Modo de preparo"></textarea>
       </div>
     </div>
-
-
 
     <div class="form-group">
       <label for="price" class="input-label">Preço:</label>
@@ -79,6 +75,13 @@ require_once "header.php";
           <option value="">Selecione a categoria</option>
           <?php echo $options; ?>
         </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="arquivo" class="input-label">Imagem do Prato:</label>
+      <div class="input-container">
+        <input type="file" id="arquivo" name="arquivo" class="input-field" required>
       </div>
     </div>
 

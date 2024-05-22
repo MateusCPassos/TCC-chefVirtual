@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>detalhes receita</title>
+    <title>Detalhes Receita</title>
     <link rel="stylesheet" href="../css/detalhesReceita.css">
 </head>
 <body>
@@ -33,6 +33,10 @@ if (isset($_GET['recipe_id'])) {
             $preparation_time = $row['tempoPreparo'];
             $observations = $row['observacoes'];
             $category_id = $row['categoria_id'];
+            $foto = $row['foto']; // Adiciona a foto do prato
+
+            // Verifica o caminho completo do arquivo
+            $foto_path = "../" . $foto;
 
             // Consulta o nome da categoria
             $sql_category = "SELECT nomeCategoria FROM categoria WHERE id = ?";
@@ -47,6 +51,20 @@ if (isset($_GET['recipe_id'])) {
 
             // Exibe os detalhes da receita
             echo "<h2>$name</h2>";
+
+            // Verifica se a foto existe
+            if ($foto && file_exists($foto_path)) {
+                echo "<img src='$foto_path' alt='$name' class='foto-prato' style='max-width: 100%; height: auto;'>";
+            } else {
+                echo "<p>Foto não disponível. Caminho verificado: $foto_path</p>";
+                // Adiciona informações de depuração
+                if (!$foto) {
+                    echo "<p>Foto não especificada no banco de dados.</p>";
+                } elseif (!file_exists($foto_path)) {
+                    echo "<p>Arquivo não encontrado no caminho: $foto_path</p>";
+                }
+            }
+
             echo "<p>Modo Preparo: $description</p>";
             echo "<p>Custo: R$ $cost</p>";
             echo "<p>Tempo de Preparo: $preparation_time</p>";
@@ -94,11 +112,5 @@ if (isset($_GET['recipe_id'])) {
 
 $pdo = null;
 ?>
-    
 </body>
 </html>
-
-
-
-
-

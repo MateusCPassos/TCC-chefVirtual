@@ -24,8 +24,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         } else {
             echo "A receita já está nos seus favoritos.";
         }
-    } else {
-        echo "ID da receita não foi especificado.";
-    }
+    } 
+} else {
+    echo "Você precisa estar logado para adicionar aos favoritos.";
 }
 ?>

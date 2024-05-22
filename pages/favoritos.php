@@ -13,6 +13,7 @@
     require_once "../config/conecta.php";
     session_start();
     require_once "header.php";
+    require_once "../addFavoritos.php";
 
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         $usuario_id = $_SESSION['id'];

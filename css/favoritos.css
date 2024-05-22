@@ -7,29 +7,6 @@
   font-family: 'Inter', Arial, sans-serif;
 }
 
-h2{
-  margin-top: 20px;
-  text-align: center;
-  font-size: 2.0rem;
-}
-
-.naoCadastrada{
-  text-align: center;
-}
-
-img{
-  width: 350px;
-}
-
-.txtImg{
-  font-size: 150px;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-}
-
 h2 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -74,30 +51,31 @@ img {
   margin-bottom: 15px;
 }
 
-.receita {
-  margin: 50px;
+.receitas-lista {
   list-style-type: none;
+  padding: 0;
+}
+
+.receitas-lista li {
+  margin: 50px;
   margin-bottom: 20px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
   width: 300px;
-  display: inline-block; 
-}
-
-.receitas ul li {
   display: inline-block;
+
 }
 
-.receita h3 a {
+.receitas-lista li a {
   text-decoration: none;
-  color: #000;
+  color: #333;
   font-weight: bold;
 }
 
-.receita p {
+.receitas-lista li p.info {
   margin-top: 5px;
   color: #666;
-  text-decoration: none;
 }
+

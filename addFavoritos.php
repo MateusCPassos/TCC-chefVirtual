@@ -2,11 +2,11 @@
 require_once "../config/conecta.php";
 
 // Verifica se o usuário está logado e se o ID da receita foi passado via GET
-if (isset($_SESSION['id']) && isset($_GET['recipe_id'])) {
-    $usuario_id = $_SESSION['id']; // Utilize o índice correto da sessão
-    $recipe_id = $_GET['recipe_id'];
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+    if (isset($_GET['recipe_id'])) {
+        $usuario_id = $_SESSION['id'];
+        $recipe_id = $_GET['recipe_id'];
 
-    if ($recipe_id !== null && $recipe_id !== '') {
         // Verifica se a receita já está nos favoritos do usuário
         $sql_check = "SELECT * FROM favoritos WHERE usuario_id = ? AND prato_id = ?";
         $stmt_check = $pdo->prepare($sql_check);
@@ -27,7 +27,5 @@ if (isset($_SESSION['id']) && isset($_GET['recipe_id'])) {
     } else {
         echo "ID da receita não foi especificado.";
     }
-} else {
-    echo "Você precisa estar logado para adicionar aos favoritos.";
 }
 ?>

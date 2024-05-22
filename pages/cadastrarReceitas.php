@@ -2,6 +2,11 @@
 session_start();
 require_once "../config/conecta.php";
 
+if (!isset($_SESSION['id']) || empty($_SESSION['id'])) {
+  header("Location: login.php");
+  exit;
+}
+
 $sql = "SELECT * FROM categoria";
 $stmt = $pdo->query($sql);
 

@@ -18,7 +18,7 @@ h2 {
   text-align: center;
 }
 
-img {
+.img img {
   width: 350px;
 }
 
@@ -51,31 +51,44 @@ img {
   margin-bottom: 15px;
 }
 
-.receitas-lista {
+.receita {
   list-style-type: none;
-  padding: 0;
-}
-
-.receitas-lista li {
-  margin: 50px;
-  margin-bottom: 20px;
+  margin: 20px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
   width: 300px;
   display: inline-block;
-
+  vertical-align: top;
+  text-align: left; 
 }
 
-.receitas-lista li a {
+.receitas ul {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.receita img.foto-prato {
+  width: 100%;
+  height: 200px; 
+  object-fit: cover; 
+  margin-bottom: 10px;
+}
+
+.receita h3 a {
   text-decoration: none;
   color: #333;
   font-weight: bold;
+  display: block; 
 }
 
-.receitas-lista li p.info {
+.receita h3 {
+  margin: 0 0 10px 0; 
+}
+
+.receita p {
   margin-top: 5px;
   color: #666;
 }
-

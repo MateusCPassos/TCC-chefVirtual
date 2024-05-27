@@ -28,25 +28,28 @@ $receitas_paginadas = array_slice($receitas, $indice_inicio, $receitas_por_pagin
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Receitas da Categoria: <?php echo $categoria_nome; ?></title>
+  <title>Receitas da Categoria: <?php echo htmlspecialchars($categoria_nome); ?></title>
   <link rel="stylesheet" href="../css/receitasPorCategoria.css">
 </head>
 
 <body>
   <main>
-    <h2>Receitas da Categoria: <?php echo $categoria_nome; ?></h2>
+    <h2>Receitas da Categoria: <?php echo htmlspecialchars($categoria_nome); ?></h2>
     <?php if ($receitas_paginadas) : ?>
-      <ul class="receitas-lista">
-        <?php foreach ($receitas_paginadas as $receita) : ?>
-          <li>
-            <a href="exibirReceita.php?recipe_id=<?php echo $receita['id']; ?>">
-              <?php echo $receita['nome']; ?>
-            </a>
-            <p class="info">Tempo de Preparo: <?php echo $receita['tempoPreparo']; ?> minutos</p>
-            <p class="info">Custo: R$ <?php echo number_format($receita['custo'], 2, ',', '.'); ?></p>
-          </li>
-        <?php endforeach; ?>
-      </ul>
+      <div class="receitas">
+        <ul>
+          <?php foreach ($receitas_paginadas as $receita) : ?>
+            <li class="receita">
+              <?php if (!empty($receita['foto'])) : ?>
+                <img src="../<?php echo htmlspecialchars($receita['foto']); ?>" alt="Foto do Prato" class="foto-prato">
+              <?php endif; ?>
+              <h3><a href="exibirReceita.php?recipe_id=<?php echo $receita['id']; ?>"><?php echo htmlspecialchars($receita['nome']); ?></a></h3>
+              <p class="tempo-preparo">Tempo de Preparo: <?php echo htmlspecialchars($receita['tempoPreparo']); ?> minutos</p>
+              <p class="custo">Custo: R$ <?php echo number_format($receita['custo'], 2, ',', '.'); ?></p>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
       <div class="pagination">
         <?php if ($pagina_atual > 1) : ?>
           <a href="receitasPorCategoria.php?categoria_id=<?php echo $categoria_id; ?>&pagina=<?php echo ($pagina_atual - 1); ?>">&laquo; Anterior</a>
@@ -62,7 +65,6 @@ $receitas_paginadas = array_slice($receitas, $indice_inicio, $receitas_por_pagin
           <a href="receitasPorCategoria.php?categoria_id=<?php echo $categoria_id; ?>&pagina=<?php echo ($pagina_atual + 1); ?>">Próxima &raquo;</a>
         <?php endif; ?>
       </div>
-
     <?php else : ?>
       <div class="naoCadastrada">
         <div class="img">

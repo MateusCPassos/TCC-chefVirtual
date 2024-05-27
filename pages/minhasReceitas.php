@@ -38,6 +38,7 @@ require_once "header.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minhas Receitas</title>
     <link rel="stylesheet" href="../css/minhasReceitas.css">
+</head>
 
 <body>
     <main>
@@ -56,11 +57,13 @@ require_once "header.php";
                 <ul>
                     <?php foreach ($receitas as $receita) : ?>
                         <li class="receita">
-                            <h3><a href="detalhesReceitas.php?recipe_id=<?php echo $receita['id']; ?>"><?php echo $receita['nome']; ?></a></h3>
+                            <?php if (!empty($receita['foto'])) : ?>
+                                <img src="../<?php echo htmlspecialchars($receita['foto']); ?>" alt="Foto do Prato" class="foto-prato">
+                            <?php endif; ?>
+                            <h3><a href="detalhesReceitas.php?recipe_id=<?php echo $receita['id']; ?>"><?php echo htmlspecialchars($receita['nome']); ?></a></h3>
                             <p class="custo">Custo: R$ <?php echo number_format($receita['custo'], 2, ',', '.'); ?></p>
-                            <p class="tempo-preparo">Tempo de Preparo: <?php echo $receita['tempoPreparo']; ?> minutos</p>
+                            <p class="tempo-preparo">Tempo de Preparo: <?php echo htmlspecialchars($receita['tempoPreparo']); ?> minutos</p>
                         </li>
-
                     <?php endforeach; ?>
                 </ul>
                 <div class="pagination">

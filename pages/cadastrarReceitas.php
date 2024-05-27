@@ -33,6 +33,13 @@ require_once "header.php";
 
 <body>
   <form enctype="multipart/form-data" method="post" action="../cadastroReceitas.php" class="form" onsubmit="return validateForm()">
+  <div class="form-group">
+      <label for="arquivo" class="input-label">Imagem do Prato:</label>
+      <div class="input-container">
+        <input type="file" id="arquivo" name="arquivo" class="input-field" required>
+      </div>
+    </div>
+    
     <div class="form-group">
       <label for="nameRecipe" class="input-label">Nome da Receita:</label>
       <div class="input-container">
@@ -78,12 +85,7 @@ require_once "header.php";
       </div>
     </div>
 
-    <div class="form-group">
-      <label for="arquivo" class="input-label">Imagem do Prato:</label>
-      <div class="input-container">
-        <input type="file" id="arquivo" name="arquivo" class="input-field" required>
-      </div>
-    </div>
+    
 
     <div class="buttonRecipe">
       <button type="submit">Cadastrar</button>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>detalhes receita</title>
+  <title>Detalhes da Receita</title>
   <link rel="stylesheet" href="../css/exibirReceita.css">
   <link rel="stylesheet" href="../fontawesome/css/all.min.css">
 </head>
@@ -30,6 +30,7 @@
           $preparation_time = $row['tempoPreparo'];
           $observations = $row['observacoes'];
           $category_id = $row['categoria_id'];
+          $foto = $row['foto'];
 
           // Consulta o nome da categoria
           $sql_category = "SELECT nomeCategoria FROM categoria WHERE id = ?";
@@ -44,6 +45,9 @@
 
           // Exibe os detalhes da receita
           echo "<h2>$name <a href='favoritos.php?recipe_id=$recipe_id' class='heart'><i class='fa-regular fa-heart'></i></a></h2>";
+          if (!empty($foto)) {
+            echo "<img src='../$foto' alt='Foto do Prato' style='max-width: 200px;'>";
+          }
           echo "<p>Modo Preparo: $description</p>";
           echo "<p>Custo: R$ $cost</p>";
           echo "<p>Tempo de Preparo: $preparation_time</p>";

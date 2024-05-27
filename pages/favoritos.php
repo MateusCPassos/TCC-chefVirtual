@@ -32,7 +32,7 @@
         $total_favoritos = $stmt_total->fetchColumn();
 
         // Busca os favoritos para a página atual
-        $sql_favoritos = "SELECT p.id, p.nome, p.modoPreparo, p.custo, p.tempoPreparo, p.observacoes, c.nomeCategoria
+        $sql_favoritos = "SELECT p.id, p.nome, p.foto, p.modoPreparo, p.custo, p.tempoPreparo, p.observacoes, c.nomeCategoria
                         FROM favoritos f
                         INNER JOIN prato p ON f.prato_id = p.id
                         INNER JOIN categoria c ON p.categoria_id = c.id
@@ -52,7 +52,10 @@
                 echo "<ul class='receitas-lista'>";
                 foreach ($favoritos as $favorito) {
                     echo "<li class='receita'>";
-                    echo "<a href='exibirReceita.php?recipe_id=" . htmlspecialchars($favorito['id']) . "' class='receita-link'>" . htmlspecialchars($favorito['nome']) . "</a>";
+                    if (!empty($favorito['foto'])) {
+                        echo "<img src='../" . htmlspecialchars($favorito['foto']) . "' alt='Foto do Prato' class='foto-prato'>";
+                    }
+                    echo "<h3><a href='exibirReceita.php?recipe_id=" . htmlspecialchars($favorito['id']) . "' class='receita-link'>" . htmlspecialchars($favorito['nome']) . "</a></h3>";
                     echo "<p class='info'>Tempo de Preparo: " . htmlspecialchars($favorito['tempoPreparo']) . " minutos</p>";
                     echo "<p class='info'>Custo: R$ " . number_format($favorito['custo'], 2, ',', '.') . "</p>";
                     echo "</li>";
@@ -92,7 +95,7 @@
             echo "<p class='naoCadastrada'>Erro ao preparar a consulta.</p>";
         }
     } else {
-        echo "<p class='naoCadastrada'>Você precisa estar logado para ver suas receitas adionadas ao favorito.</p>";
+        echo "<p class='naoCadastrada'>Você precisa estar logado para ver suas receitas adicionadas ao favorito.</p>";
     }
 
     $pdo = null;

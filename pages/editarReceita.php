@@ -30,6 +30,7 @@
                 $preparation_time = $row['tempoPreparo'];
                 $observations = $row['observacoes'];
                 $category_id = $row['categoria_id'];
+                $photo = $row['foto'];
 
                 // Consulta todas as categorias disponíveis
                 $sql_categories = "SELECT * FROM categoria";
@@ -42,8 +43,17 @@
     ?>
                 <div class="container">
                     <h2>Editar Receita</h2>
-                    <form action="../atualizarReceita.php" method="post" class="form">
+                    <form action="../atualizarReceita.php" method="post" class="form" enctype="multipart/form-data">
                         <input type="hidden" name="recipe_id" value="<?php echo $recipe_id; ?>">
+                        <div class="form-group">
+                            <label for="photo" class="input-label">Foto do Prato:</label>
+                            <?php if (!empty($photo)): ?>
+                                <img src="../<?php echo $photo; ?>" alt="Foto do Prato" style="max-width: 200px; max-height: 200px;">
+                            <?php else: ?>
+                                <p>Foto não disponível.</p>
+                            <?php endif; ?>
+                            <input type="file" id="photo" name="photo" class="input-field">
+                        </div>
                         <div class="form-group"> 
                             <label for="name" class="input-label">Nome da Receita:</label> 
                             <input type="text" id="name" name="name" value="<?php echo $name; ?>" required class="input-field"> 

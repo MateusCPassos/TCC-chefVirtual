@@ -1,0 +1,92 @@
+/* home.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 2.0rem;
+}
+
+.form-busca {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.form-busca input[type="text"] {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  width: 300px;
+}
+
+.form-busca button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0 5px 5px 0;
+  background-color: #FFB525;
+  color: #fff;
+  cursor: pointer;
+}
+
+.form-busca button:hover {
+  background-color: #e0a600;
+}
+
+.receita {
+  list-style-type: none;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  width: 300px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+}
+
+.receitas-lista {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.receita img.foto-prato {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.receita h3 a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: block;
+}
+
+.receita h3 {
+  margin: 0 0 10px 0;
+}
+
+.receita p {
+  margin-top: 5px;
+  color: #666;
+}
+
+.naoCadastrada {
+  text-align: center;
+}

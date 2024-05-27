@@ -10,9 +10,8 @@ function logout()
   exit;
 }
 
-require_once "header.php"
+require_once "header.php";
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,10 +20,17 @@ require_once "header.php"
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>home</title>
+  <link rel="stylesheet" href="../css/index.css">
 </head>
 
 <body>
-  <h1>teste</h1>
+  <main>
+    <form method="GET" action="buscarReceita.php" class="form-busca">
+      <input type="text" name="search" placeholder="Buscar receita" required>
+      <button type="submit">Buscar</button>
+    </form>
+
+  </main>
 </body>
 
 </html>

@@ -12,8 +12,18 @@
 <body>
   <div class="container">
     <?php
+
+
     require_once "../config/conecta.php";
     require_once "header.php";
+
+        // Registro do log de visita
+        if (isset($_GET['recipe_id'])) {
+          $recipe_id = $_GET['recipe_id'];
+          $sql_insert_log = "INSERT INTO log (prato_id, data) VALUES (?, NOW())";
+          $stmt_insert_log = $pdo->prepare($sql_insert_log);
+          $stmt_insert_log->execute([$recipe_id]);
+        }
 
     // Verifica se o ID da receita foi passado via GET
     if (isset($_GET['recipe_id'])) {

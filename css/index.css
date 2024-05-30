@@ -90,3 +90,50 @@ h2 {
 .naoCadastrada {
   text-align: center;
 }
+
+
+.recomendados h1{
+  margin: 30px;
+  margin-top: 15px;
+}
+
+
+.categoria h1{
+  text-align: right;
+  margin: 30px;
+  margin-top: 15px;
+
+}
+
+.categorias-lista {
+  list-style: none;
+  padding: 0;
+  margin: 30px auto;
+  width: 90%;
+  text-align: center;
+
+}
+
+.categorias-lista li {
+  display: inline-block;
+  margin-right: 30px;
+
+}
+
+.categorias-lista li:last-child {
+  margin-right: 0;
+}
+
+.categorias-lista li a {
+  display: block;
+  padding: 10px 20px;
+  background-color: #FFB525;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.categorias-lista li a:hover {
+  background-color: #e0a600;
+}

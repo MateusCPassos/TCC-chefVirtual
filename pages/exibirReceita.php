@@ -20,7 +20,9 @@
       $recipe_id = $_GET['recipe_id'];
 
       // Consulta os detalhes da receita no banco de dados
-      $sql = "SELECT * FROM prato WHERE id = ?";
+      $sql = "SELECT p.*, u.nome AS usuario_nome FROM prato p
+              INNER JOIN usuario u ON p.usuario_id = u.id
+              WHERE p.id = ?";
       $stmt = $pdo->prepare($sql);
       if ($stmt->execute([$recipe_id])) {
         if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -31,6 +33,7 @@
           $observations = $row['observacoes'];
           $category_id = $row['categoria_id'];
           $foto = $row['foto'];
+          $usuario_nome = $row['usuario_nome'];
 
           // Consulta o nome da categoria
           $sql_category = "SELECT nomeCategoria FROM categoria WHERE id = ?";
@@ -45,6 +48,7 @@
 
           // Exibe os detalhes da receita
           echo "<h2>$name <a href='favoritos.php?recipe_id=$recipe_id' class='heart'><i class='fa-regular fa-heart'></i></a></h2>";
+          echo "<p>Receita criada por: $usuario_nome</p>";
           if (!empty($foto)) {
             echo "<img src='../$foto' alt='Foto do Prato' style='max-width: 200px;'>";
           }
@@ -74,6 +78,43 @@
           $ingredientes = $stmt_ingredientes->fetchAll(PDO::FETCH_OBJ);
           foreach ($ingredientes as $ingrediente) {
             echo "<p>" . htmlspecialchars($ingrediente->NomeIndrediente) . " - " . htmlspecialchars($ingrediente->quantidade) . "</p>";
+          }
+
+          // Formulário para adicionar avaliação
+          if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+            echo "<h2>Adicionar Avaliação</h2>";
+            echo "<form action='' method='post'>
+                    <textarea name='avaliacao' rows='4' cols='50' placeholder='Adicione sua avaliação aqui...'></textarea><br>
+                    <input type='submit' value='Enviar Avaliação'>
+                  </form>";
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['avaliacao'])) {
+              $avaliacao = $_POST['avaliacao'];
+              $usuario_id = $_SESSION['id'];
+              $data = date('Y-m-d');
+
+              $sql_add_avaliacao = "INSERT INTO avaliacao (avaliacaoDoPrato, data, usuario_id, prato_id) VALUES (?, ?, ?, ?)";
+              $stmt_add_avaliacao = $pdo->prepare($sql_add_avaliacao);
+              if ($stmt_add_avaliacao->execute([$avaliacao, $data, $usuario_id, $recipe_id])) {
+                echo "<p>Avaliação adicionada com sucesso!</p>";
+              } else {
+                echo "<p>Erro ao adicionar avaliação.</p>";
+              }
+            }
+          } else {
+            echo "<p>Você precisa estar logado para adicionar avaliações.</p>";
+          }
+
+          // Exibe as avaliações
+          echo "<h2>Avaliações:</h2>";
+          $sql_avaliacoes = "SELECT a.*, u.nome AS usuario_nome FROM avaliacao a
+                             INNER JOIN usuario u ON a.usuario_id = u.id
+                             WHERE a.prato_id = ? ORDER BY a.data DESC";
+          $stmt_avaliacoes = $pdo->prepare($sql_avaliacoes);
+          $stmt_avaliacoes->execute([$recipe_id]);
+          $avaliacoes = $stmt_avaliacoes->fetchAll(PDO::FETCH_ASSOC);
+          foreach ($avaliacoes as $avaliacao) {
+            echo "<p><strong>" . htmlspecialchars($avaliacao['usuario_nome']) . "</strong> (" . htmlspecialchars($avaliacao['data']) . "): " . htmlspecialchars($avaliacao['avaliacaoDoPrato']) . "</p>";
           }
         } else {
           echo "<p>Receita não encontrada.</p>";

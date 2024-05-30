@@ -45,6 +45,13 @@ h2 {
   background-color: #e0a600;
 }
 
+.receitas-recomendadas {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .receita {
   list-style-type: none;
   margin: 20px;
@@ -52,16 +59,8 @@ h2 {
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
-  width: 300px;
-  display: inline-block;
-  vertical-align: top;
+  width: 350px; /* Tamanho igual ao da tela de exemplo */
   text-align: left;
-}
-
-.receitas-lista {
-  padding: 0;
-  list-style: none;
-  text-align: center;
 }
 
 .receita img.foto-prato {
@@ -91,18 +90,15 @@ h2 {
   text-align: center;
 }
 
-
-.recomendados h1{
-  margin: 30px;
+.recomendados h1 {
+text-align: center;
   margin-top: 15px;
 }
 
-
-.categoria h1{
-  text-align: right;
+.categoria h1 {
+  text-align: center;
   margin: 30px;
   margin-top: 15px;
-
 }
 
 .categorias-lista {
@@ -111,13 +107,11 @@ h2 {
   margin: 30px auto;
   width: 90%;
   text-align: center;
-
 }
 
 .categorias-lista li {
   display: inline-block;
   margin-right: 30px;
-
 }
 
 .categorias-lista li:last-child {

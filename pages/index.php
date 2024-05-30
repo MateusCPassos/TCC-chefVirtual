@@ -18,7 +18,7 @@ $sql_receitas_mais_visitadas = "SELECT p.*, COUNT(l.prato_id) AS visitas
                                 LEFT JOIN log l ON p.id = l.prato_id
                                 GROUP BY p.id
                                 ORDER BY visitas DESC
-                                LIMIT 5"; // Você pode ajustar o número de receitas recomendadas aqui
+                                LIMIT 6";
 $stmt_receitas_mais_visitadas = $pdo->prepare($sql_receitas_mais_visitadas);
 $stmt_receitas_mais_visitadas->execute();
 $receitas_recomendadas = $stmt_receitas_mais_visitadas->fetchAll(PDO::FETCH_ASSOC);
@@ -45,7 +45,14 @@ $receitas_recomendadas = $stmt_receitas_mais_visitadas->fetchAll(PDO::FETCH_ASSO
             <h1>Recomendados</h1>
             <ul class="receitas-recomendadas">
                 <?php foreach ($receitas_recomendadas as $receita) : ?>
-                    <li><a href="exibirReceita.php?recipe_id=<?php echo $receita['id']; ?>"><?php echo htmlspecialchars($receita['nome']); ?> (<?php echo $receita['visitas']; ?> visitas)</a></li>
+                  <li class="receita">
+              <?php if (!empty($receita['foto'])) : ?>
+                <img src="../<?php echo htmlspecialchars($receita['foto']); ?>" alt="Foto do Prato" class="foto-prato">
+              <?php endif; ?>
+              <h3><a href="exibirReceita.php?recipe_id=<?php echo $receita['id']; ?>"><?php echo htmlspecialchars($receita['nome']); ?></a></h3>
+              <p class="tempo-preparo">Tempo de Preparo: <?php echo htmlspecialchars($receita['tempoPreparo']); ?> minutos</p>
+              <p class="custo">Custo: R$ <?php echo number_format($receita['custo'], 2, ',', '.'); ?></p>
+            </li>
                 <?php endforeach; ?>
             </ul>
         </div>

@@ -14,16 +14,9 @@
   <header>
     <nav class="nav-bar">
       <div class="logo">
-        <h1>ChefVirtual</h1>
+        <img src="../assets/img/logoFinal.png">
       </div>
 
-      <div class="nav-list">
-        <ul>
-          <li class="nav-item"><a href="index.php" class="nav-link">Início</a></li>
-          <li class="nav-item"><a href="categoria.php" class="nav-link">Categoria</a></li>
-          <li class="nav-item"><a href="favoritos.php" class="nav-link">Favoritos</a></li>
-        </ul>
-      </div>
       <div class="menu-icon">
         <i class="fa-solid fa-bars"></i>
       </div>
@@ -34,6 +27,10 @@
         <i class="fa-solid fa-arrow-right close-button"></i>
       </div>
       <ul class="sidebar-list">
+        <li class="nav-item"><a href="index.php" class="sidebar-link">Início</a></li>
+        <li class="nav-item"><a href="categoria.php" class="sidebar-link">Categoria</a></li>
+        <li class="nav-item"><a href="favoritos.php" class="sidebar-link">Favoritos</a></li>
+
         <?php
         if (session_status() === PHP_SESSION_NONE) {
           session_start();

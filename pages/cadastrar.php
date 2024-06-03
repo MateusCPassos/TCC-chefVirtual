@@ -1,5 +1,5 @@
 <?php
-require_once "header.php"
+require_once "header.php";
 ?>
 
 <!DOCTYPE html>
@@ -14,15 +14,26 @@ require_once "header.php"
 </head>
 
 <body>
-    <h1>cadastrar</h1>
-    <form method="post" action="../cadastro.php" class="form" onsubmit="return validateForm()">
+    <h1>Cadastrar</h1>
+    <form enctype="multipart/form-data" method="post" action="../cadastro.php" class="form" enctype="multipart/form-data" onsubmit="return validateForm()">
+
+    <div class="form-group">
+            <label for="profile-pic" class="input-label">Foto de Perfil:</label>
+            <div class="input-container">
+                <input type="file" id="profile-pic" name="profile-pic" class="input-field" accept="image/*">
+            </div>
+        </div>
+
         <div class="form-group">
             <label for="name" class="input-label">Nome:</label>
             <div class="input-container">
                 <input type="text" id="name" name="name" required class="input-field" placeholder="ex: João Silva">
-                <i class="fas fa-user input-icon"></i>
+                <i class="fa-regular fa-user input-icon"></i>
             </div>
         </div>
+        
+
+        
         <div class="form-group">
             <label for="email" class="input-label">E-mail:</label>
             <div class="input-container">
@@ -50,14 +61,13 @@ require_once "header.php"
     </form>
 
     <div class="login">
-        <p> possui cadastro?</p><a href="login.php">Login</a>
+        <p>Possui cadastro?</p><a href="login.php">Login</a>
     </div>
 
     <script>
         function validateForm() {
             var password = document.getElementById("password").value;
             var confirmPassword = document.getElementById("confirmPassword").value;
-            var email = document.getElementById("email").value;
 
             if (password != confirmPassword) {
                 alert("As senhas não coincidem!");

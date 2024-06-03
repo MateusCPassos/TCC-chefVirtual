@@ -1,47 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: 'Inter', Arial, sans-serif;
 }
 
-header{
+header {
   background-color: #878787;
   box-shadow: 0px 3px 10px #464646;
 }
 
-.nav-bar{
+.nav-bar {
   display: flex;
   justify-content: space-between;
-  padding: 1.5rem 6rem;
+  align-items: center;
+  padding: 1rem;
 }
 
-.logo{
+.logo {
   display: flex;
   align-items: center;
 }
 
-.logo h1{
+.logo img {
+  width: 200px;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+}
+
+.menu-icon {
+  display: block;
   color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
-.nav-list{
+.nav-list ul {
   display: flex;
-  align-items: center;
-}
-
-.nav-list ul{
-  display: flex;
-  justify-content: center;
   list-style: none;
 }
 
-.nav-item{
+.nav-item {
   margin: 0 15px;
 }
 
-.nav-link{
+.nav-link {
   text-decoration: none;
   font-size: 1.15rem;
   color: #fff;
@@ -56,11 +64,11 @@ header{
   position: fixed;
   top: 0;
   right: -200px;
-  transition: right 0.3s; 
+  transition: right 0.3s;
 }
 
 .sidebar.active {
-  right: 0; 
+  right: 0;
 }
 
 .sidebar-list {
@@ -82,4 +90,38 @@ header{
   color: #fff;
   font-size: 24px;
   cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .nav-bar {
+    padding: 1rem; 
+  }
+
+  .logo h1 {
+    font-size: 1.2rem;
+  }
+
+  .nav-list {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .sidebar {
+    padding-top: 4rem; 
+    top: 0;
+    left: -200px;
+    right: 0;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
 }

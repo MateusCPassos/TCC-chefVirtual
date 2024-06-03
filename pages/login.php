@@ -2,6 +2,8 @@
 session_start();
 require_once "../config/conecta.php";
 
+$error = ""; // Variável para armazenar mensagens de erro
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $email = isset($_POST["email"]) ? trim($_POST["email"]) : '';
   $password = isset($_POST["password"]) ? trim($_POST["password"]) : '';
@@ -18,10 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       header("Location: index.php");
       exit;
     } else {
-      $error = "Senha incorreta.";
+      $error = "E-mail ou senha incorretos.";
     }
   } else {
-    $error = "E-mail não encontrado.";
+    $error = "E-mail ou senha incorretos.";
   }
 }
 ?>
@@ -42,7 +44,12 @@ include "header.php";
 </head>
 
 <body>
-  <h1>login</h1>
+  <h1>Login</h1>
+  <?php if (!empty($error)) : ?>
+    <script>
+      alert("<?php echo $error; ?>");
+    </script>
+  <?php endif; ?>
   <form method="post" action="" class="form">
     <div class="form-group">
       <label for="email" class="input-label">E-mail:</label>
@@ -59,11 +66,11 @@ include "header.php";
       </div>
     </div>
     <div class="button">
-      <button type="submit">Cadastrar</button>
+      <button type="submit">Login</button>
     </div>
   </form>
   <div class="cadastrar">
-    <P>Não possui cadastro? </p> <a href="cadastrar.php">Cadastrar</a>
+    <p>Não possui cadastro? <a href="cadastrar.php">Cadastrar</a></p>
   </div>
 </body>
 <?php

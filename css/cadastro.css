@@ -7,14 +7,15 @@
   font-family: 'Inter', Arial, sans-serif;
 }
 
-h1{
+h1 {
   text-align: center;
+  margin-top: 15px;
 }
 
 .form {
   max-width: 300px;
   margin: 0 auto;
-  padding: 20px; 
+  padding: 20px;
 }
 
 .form-group {
@@ -22,7 +23,7 @@ h1{
 }
 
 .form-group .input-label {
-  display: block; 
+  display: block;
 }
 
 .form-group .input-container {
@@ -31,20 +32,20 @@ h1{
 
 .form-group .input-field {
   width: calc(100% - 30px);
-  padding: 10px; 
+  padding: 10px;
   margin-top: 5px;
-  padding-left: 30px; 
+  padding-left: 30px;
 }
 
 .form-group .input-field::placeholder {
-  color: #aaa; 
+  color: #aaa;
 }
 
 .input-icon {
   position: absolute;
-  top: 50%; 
-  left: 10px; 
-  transform: translateY(-50%); 
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
 }
 
 .button {
@@ -57,7 +58,7 @@ h1{
   background-color: #FFB525;
   color: #000;
   border: none;
-  padding: 10px; 
+  padding: 10px;
   border-radius: 5px;
   font-size: 16px;
   transition: background-color 0.3s;
@@ -67,11 +68,45 @@ h1{
   background-color: #FFA200;
 }
 
-.login{
+.login {
   text-align: center;
+  margin-bottom: 15px;
 }
 
-.login a{
+.login a {
   text-decoration: none;
-  color:#FFB525
+  color: #FFB525;
+}
+
+
+@media screen and (max-width: 600px) {
+  .form {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .form-group .input-field {
+    width: 100%;
+  }
+
+  .button button {
+    width: 50%;
+  }
+
+  .button button {
+    width: 50%;
+    cursor: pointer;
+    background-color: #FFB525;
+    color: #000;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px; 
+    transition: background-color 0.3s;
+}
+
+.button button:hover {
+    background-color: #FFA200;
+}
+
 }

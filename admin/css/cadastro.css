@@ -10,7 +10,6 @@
 h1 {
   text-align: center;
   margin-top: 15px;
-  color: #333;
 }
 
 .form {
@@ -51,11 +50,10 @@ h1 {
 
 .button {
   text-align: center;
-  margin-top: 20px;
 }
 
 .button button {
-  width: 50%;
+  width: 60%;
   cursor: pointer;
   background-color: #FFB525;
   color: #000;
@@ -70,57 +68,16 @@ h1 {
   background-color: #FFA200;
 }
 
-.cadastrar {
+.login {
   text-align: center;
-  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
-.cadastrar a {
+.login a {
   text-decoration: none;
   color: #FFB525;
 }
 
-.categoria {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.categoria h1 {
-  margin: 30px 0;
-  font-size: 1.8rem;
-  color: #333;
-}
-
-.categorias-lista {
-  list-style: none;
-  padding: 0;
-  margin: 30px auto;
-  width: 90%;
-  text-align: center;
-}
-
-.categorias-lista li {
-  display: inline-block;
-  margin-right: 30px;
-}
-
-.categorias-lista li:last-child {
-  margin-right: 0;
-}
-
-.categorias-lista li a {
-  display: block;
-  padding: 10px 20px;
-  background-color: #FFB525;
-  border-radius: 5px;
-  text-decoration: none;
-  color: #fff;
-  transition: background-color 0.3s;
-}
-
-.categorias-lista li a:hover {
-  background-color: #FFA200;
-}
 
 @media screen and (max-width: 600px) {
   .form {
@@ -133,11 +90,11 @@ h1 {
   }
 
   .button button {
-    width: 100%;
+    width: 50%;
   }
 
   .button button {
-    width: 100%;
+    width: 50%;
     cursor: pointer;
     background-color: #FFB525;
     color: #000;
@@ -146,9 +103,10 @@ h1 {
     border-radius: 5px;
     font-size: 16px; 
     transition: background-color 0.3s;
-  }
+}
 
-  .button button:hover {
+.button button:hover {
     background-color: #FFA200;
-  }
+}
+
 }

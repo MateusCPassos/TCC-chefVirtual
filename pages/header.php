@@ -14,7 +14,7 @@
   <header>
     <nav class="nav-bar">
       <div class="logo">
-        <img src="../assets/img/logoFinal.png">
+        <a href="index.php"><img src="../assets/img/logoFinal.png" ></a>
       </div>
 
       <div class="menu-icon">
@@ -27,9 +27,6 @@
         <i class="fa-solid fa-arrow-right close-button"></i>
       </div>
       <ul class="sidebar-list">
-        <li class="nav-item"><a href="index.php" class="sidebar-link">Início</a></li>
-        <li class="nav-item"><a href="categoria.php" class="sidebar-link">Categoria</a></li>
-        <li class="nav-item"><a href="favoritos.php" class="sidebar-link">Favoritos</a></li>
 
         <?php
         if (session_status() === PHP_SESSION_NONE) {
@@ -40,7 +37,9 @@
           echo '<li><a href="cadastrar.php" class="sidebar-link">Cadastrar/entrar</a></li>';
         }
         ?>
-
+        <li><a href="index.php" class="sidebar-link">Início</a></li>
+        <li><a href="categoria.php" class="sidebar-link">Categoria</a></li>
+        <li><a href="favoritos.php" class="sidebar-link">Favoritos</a></li>
         <li><a href="cadastrarReceitas.php" class="sidebar-link">Cadastrar Receitas</a></li>
         <li><a href="minhasReceitas.php" class="sidebar-link">Minhas Receitas</a></li>
         <?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) : ?>

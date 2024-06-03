@@ -73,6 +73,9 @@ require_once "header.php";
                 echo "<h3><a href='exibirReceita.php?recipe_id=" . htmlspecialchars($receita['id']) . "' class='receita-link'>" . htmlspecialchars($receita['nome']) . "</a></h3>";
                 echo "<p class='info'>Tempo de Preparo: " . htmlspecialchars($receita['tempoPreparo']) . " minutos</p>";
                 echo "<p class='info'>Custo: R$ " . number_format($receita['custo'], 2, ',', '.') . "</p>";
+                ?>
+                <a href="exibirReceita.php?recipe_id=<?php echo $receita['id']; ?>" class="button">Ver Receita</a>
+                <?php
                 echo "</li>";
             }
             echo "</ul>";
@@ -98,10 +101,10 @@ require_once "header.php";
             echo "<p class='naoCadastrada'>Nenhuma receita encontrada com o termo '" . htmlspecialchars($search) . "'.</p>";
         }
     }
-    require_once 'footer.php';
     ?>
-
+  <?php require_once 'footer.php'; ?>
   </main>
+
 </body>
 
 </html>

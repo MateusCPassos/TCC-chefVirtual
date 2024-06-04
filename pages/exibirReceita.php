@@ -57,8 +57,12 @@
           }
 
           // Exibe os detalhes da receita
-          echo "<h2>$name <a href='favoritos.php?recipe_id=$recipe_id' class='heart'><i class='fa-regular fa-heart'></i></a></h2>";
           echo "<p>Receita criada por: $usuario_nome</p>";
+          ?>
+            <hr>
+          <?php
+          echo "<h2>$name <a href='favoritos.php?recipe_id=$recipe_id' class='heart'><i class='fa-regular fa-heart'></i></a></h2>";
+        
           if (!empty($foto)) {
             echo "<img src='../$foto' alt='Foto do Prato' style='max-width: 200px;'>";
           }
@@ -89,6 +93,9 @@
           foreach ($ingredientes as $ingrediente) {
             echo "<p>" . htmlspecialchars($ingrediente->NomeIndrediente) . " - " . htmlspecialchars($ingrediente->quantidade) . "</p>";
           }
+          ?>
+          <hr>
+          <?php
 
           // Formulário para adicionar avaliação
           if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {

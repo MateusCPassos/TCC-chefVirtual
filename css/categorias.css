@@ -10,16 +10,6 @@ h2 {
   text-align: center;
   margin-top: 15px;
   font-size: 2.0rem;
-}
-
-.categoria {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.categoria h1 {
-  margin: 30px 0;
-  font-size: 1.8rem;
   color: #333;
 }
 
@@ -33,25 +23,54 @@ h2 {
 
 .categorias-lista li {
   display: inline-block;
-  margin-right: 30px;
+  margin: 15px;
+  text-align: center;
+  vertical-align: top;
 }
 
-.categorias-lista li:last-child {
-  margin-right: 0;
+.categoria-foto {
+  width: 150px; /* Ajuste o tamanho conforme necessário */
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .categorias-lista li a {
   display: block;
-  padding: 10px 20px;
+  padding: 10px;
   background-color: #FFB525;
   border-radius: 5px;
   text-decoration: none;
   color: #fff;
   transition: background-color 0.3s;
-  margin-top: 15px;
-
+  margin-top: 5px;
+  width: 150px; 
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .categorias-lista li a:hover {
   background-color: #FFA200;
+}
+@media (max-width: 600px) {
+  .categoria-foto {
+    width: 100px;
+    height: 100px;
+  }
+
+  .categorias-lista li a {
+    width: 100px;
+  }
+
+  .categorias-lista li {
+    margin: 10px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
 }

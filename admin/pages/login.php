@@ -19,10 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: index.php");
             exit;
         } else {
-            $error = "Senha incorreta.";
+            $error = "Senha incorreta ou E-mail incoreto.";
         }
     } else {
-        $error = "E-mail não encontrado ou você não tem permissão para acessar esta área.";
+        $error =  "você não tem permissão para acessar esta área.";
     }
 }
 ?>
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
-    <link rel="stylesheet" href="../css/admin_login.css">
+    <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../fontawesome/css/all.min.css">
 </head>
 <body>

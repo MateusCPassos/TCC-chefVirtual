@@ -7,6 +7,10 @@
   font-family: 'Inter', Arial, sans-serif;
 }
 
+main{
+  margin: 15px;
+}
+
 .container {
   background-color: #fff; 
   border-radius: 5px; 

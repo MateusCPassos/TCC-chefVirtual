@@ -3,7 +3,7 @@ require_once "header.php";
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -24,13 +24,17 @@ require_once "header.php";
     $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($categorias as $categoria) {
-      echo '<li><a href="receitasPorCategoria.php?categoria_id=' . $categoria['id'] . '">' . $categoria['nomeCategoria'] . '</a></li>';
+      echo '<li>';
+      if (!empty($categoria['fotoCategoria'])) {
+        echo '<img src="../' . htmlspecialchars($categoria['fotoCategoria']) . '" alt="' . htmlspecialchars($categoria['nomeCategoria']) . '" class="categoria-foto">';
+      }
+      echo '<a href="receitasPorCategoria.php?categoria_id=' . $categoria['id'] . '">' . htmlspecialchars($categoria['nomeCategoria']) . '</a>';
+      echo '</li>';
     }
 
     $pdo = null;
     ?>
   </ul>
-
 </body>
 
 </html>

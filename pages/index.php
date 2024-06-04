@@ -63,21 +63,26 @@ $receitas_recomendadas = $stmt_receitas_mais_visitadas->fetchAll(PDO::FETCH_ASSO
     <div class="categoria">
       <h1>Categoria</h1>
       <ul class="categorias-lista">
-        <?php
-        require_once "../config/conecta.php";
+    <?php
+    require_once "../config/conecta.php";
 
-        $sql = "SELECT * FROM categoria";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
-        $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $sql = "SELECT * FROM categoria";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($categorias as $categoria) {
-          echo '<li><a href="receitasPorCategoria.php?categoria_id=' . $categoria['id'] . '">' . $categoria['nomeCategoria'] . '</a></li>';
-        }
+    foreach ($categorias as $categoria) {
+      echo '<li>';
+      if (!empty($categoria['fotoCategoria'])) {
+        echo '<img src="../' . htmlspecialchars($categoria['fotoCategoria']) . '" alt="' . htmlspecialchars($categoria['nomeCategoria']) . '" class="categoria-foto">';
+      }
+      echo '<a href="receitasPorCategoria.php?categoria_id=' . $categoria['id'] . '">' . htmlspecialchars($categoria['nomeCategoria']) . '</a>';
+      echo '</li>';
+    }
 
-        $pdo = null;
-        ?>
-      </ul>
+    $pdo = null;
+    ?>
+  </ul>
     </div>
   </main>
 </body>

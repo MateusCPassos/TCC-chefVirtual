@@ -29,7 +29,7 @@
 
     // Verifica se a receita existe e pertence ao usuário
     if (!$recipe_id || !$recipe_exists) {
-        echo "receita não pertence ao usuário.";
+        echo "Receita não pertence ao usuário.";
         exit;
     }
     ?>
@@ -37,7 +37,7 @@
         <h2>Cadastro de Ingredientes</h2>
         <form action="../cadastroReceitas3.php" method="post">
             <div class="form-group">
-                <input name="ingredientes_id" list="ingredientes">
+                <input name="ingredientes_nome" list="ingredientes">
                 <datalist id="ingredientes">
                     <?php
                     $sql = "SELECT * FROM indredientes ORDER BY NomeIndrediente";
@@ -47,12 +47,10 @@
                     $ingredientes = $stmt->fetchAll(PDO::FETCH_OBJ);
 
                     foreach ($ingredientes as $ingrediente) {
-                        echo "<option value='{$ingrediente->id} - {$ingrediente->NomeIndrediente}'>";
+                        echo "<option value='{$ingrediente->NomeIndrediente}'>";
                     }
                     ?>
-
                 </datalist>
-
                 <label for="ingrediente">Ingrediente:</label>
             </div>
             <div class="form-group">
@@ -75,7 +73,14 @@
 
         foreach ($ingredientes as $ingrediente) {
         ?>
-            <p><?= $ingrediente->NomeIndrediente ?> - <?= $ingrediente->quantidade ?></p>
+            <div>
+                <p><?= $ingrediente->NomeIndrediente ?> - <?= $ingrediente->quantidade ?></p>
+                <form action="../cadastroReceitas3.php" method="post" style="display:inline;">
+                    <input type="hidden" name="recipe_id" value="<?php echo $recipe_id; ?>">
+                    <input type="hidden" name="remove_ingrediente_id" value="<?php echo $ingrediente->id; ?>">
+                    <button type="submit">Remover</button>
+                </form>
+            </div>
         <?php
         }
         ?>

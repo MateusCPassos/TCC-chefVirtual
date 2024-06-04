@@ -70,7 +70,14 @@ if (!$recipe_id || !$recipe_exists) {
 
         foreach ($materiais as $material) {
         ?>
-            <p><?= $material->nomeMaterial ?></p>
+            <div class="material-item">
+                <p><?= $material->nomeMaterial ?></p>
+                <form action="../cadastroReceitas2.php" method="post" style="display:inline;">
+                    <input type="hidden" name="recipe_id" value="<?php echo $recipe_id; ?>">
+                    <input type="hidden" name="remove_material_id" value="<?= $material->id ?>">
+                    <button type="submit">Remover</button>
+                </form>
+            </div>
         <?php
         }
         ?>

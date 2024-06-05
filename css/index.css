@@ -150,7 +150,7 @@ h2 {
 }
 
 .categoria-foto {
-  width: 150px; /* Ajuste o tamanho conforme necessário */
+  width: 150px; 
   height: 150px;
   object-fit: cover;
   border-radius: 5px;

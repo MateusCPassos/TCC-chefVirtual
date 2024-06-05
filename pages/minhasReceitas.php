@@ -63,6 +63,8 @@ require_once "header.php";
                             <h3><a href="detalhesReceitas.php?recipe_id=<?php echo $receita['id']; ?>"><?php echo htmlspecialchars($receita['nome']); ?></a></h3>
                             <p class="custo">Custo: R$ <?php echo number_format($receita['custo'], 2, ',', '.'); ?></p>
                             <p class="tempo-preparo">Tempo de Preparo: <?php echo htmlspecialchars($receita['tempoPreparo']); ?> minutos</p>
+                            <a href="detalhesReceitas.php?recipe_id=<?php echo $receita['id']; ?>" class="button">Ver Receita</a>
+
                         </li>
                     <?php endforeach; ?>
                 </ul>

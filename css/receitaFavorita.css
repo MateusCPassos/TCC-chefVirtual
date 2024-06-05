@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
+
+/* CSS para receitasFavoritas.php */
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.container p {
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header .foto {
+  max-width: 300px;
+  max-height: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.header .foto img {
+  width: 100%;
+  height: auto;
+}
+
+.header .nome h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section h2 {
+  font-size: 20px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.details-grid {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.details-grid p {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.observacoes {
+  margin-top: 20px;
+}
+
+form {
+  margin-top: 20px;
+}
+
+form button {
+  background-color: #ff4b5c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+form button:hover {
+  background-color: #e03a4b;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #0066cc;
+  font-weight: bold;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}

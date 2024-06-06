@@ -43,6 +43,7 @@
         <li><a href="cadastrarReceitas.php" class="sidebar-link">Cadastrar Receitas</a></li>
         <li><a href="minhasReceitas.php" class="sidebar-link">Minhas Receitas</a></li>
         <?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) : ?>
+          <li><a href="modificarConta.php" class="sidebar-link">modificar conta</a></li>
           <li><a href="../logout.php" class="sidebar-link">Sair</a></li>
         <?php endif; ?>
       </ul>

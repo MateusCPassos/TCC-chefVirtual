@@ -102,3 +102,45 @@ form button:hover {
 .links a:hover {
   text-decoration: underline;
 }
+
+
+.avaliacao-form {
+  margin-top: 20px;
+}
+
+.avaliacao {
+  margin-bottom: 20px;
+}
+
+.avaliacao1{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.avaliacao .usuario-info {
+  display: flex;
+  align-items: center;
+}
+
+.avaliacao img {
+  width: 30px; 
+  height: 30px; 
+  border-radius: 50%;
+  margin-right: 5px;
+  margin-top: 2px;
+}
+
+
+.avaliacao .nome {
+  font-weight: bold;
+}
+
+.avaliacao .data {
+  color: #666;
+  font-size: 14px;
+  margin-left: auto; /* Alinha a data à direita */
+}
+
+.avaliacao .texto {
+  margin-top: 5px;
+}

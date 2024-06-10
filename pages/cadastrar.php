@@ -10,6 +10,7 @@ require_once "header.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuário</title>
     <link rel="stylesheet" href="../css/cadastro.css">
+    <link rel="shortcut icon" href="../assets/img/icone.png">
     <link rel="stylesheet" href="../fontawesome/css/all.min.css">
 </head>
 

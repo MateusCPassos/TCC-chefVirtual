@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $tipoUsuario = "comum";
 
                 if ($stmt->execute([$name, $email, $hashed_password, $profilePic, $tipoUsuario])) {
-                    header("Location: pages/index.php");
+                    header("Location: pages/login.php");
                     exit();
                 } else {
                     echo "Erro ao criar usuário.";

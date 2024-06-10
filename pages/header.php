@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../css/header.css">
   <link rel="stylesheet" href="../fontawesome/css/all.min.css">
   <link rel="stylesheet" href="../css/sidebar.css">
-</head>
+  </head>
 
 <body>
   <header>
@@ -34,7 +34,8 @@
         }
 
         if (!isset($_SESSION["id"])) {
-          echo '<li><a href="cadastrar.php" class="sidebar-link">Cadastrar/entrar</a></li>';
+          echo '<li><a href="cadastrar.php" class="sidebar-link">Cadastrar</a></li>';
+          echo '<li><a href="login.php" class="sidebar-link">Login</a></li>';
         }
         ?>
         <li><a href="index.php" class="sidebar-link">Início</a></li>
@@ -43,7 +44,7 @@
         <li><a href="cadastrarReceitas.php" class="sidebar-link">Cadastrar Receitas</a></li>
         <li><a href="minhasReceitas.php" class="sidebar-link">Minhas Receitas</a></li>
         <?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) : ?>
-          <li><a href="modificarConta.php" class="sidebar-link">modificar conta</a></li>
+          <li><a href="modificarConta.php" class="sidebar-link">Modificar conta</a></li>
           <li><a href="../logout.php" class="sidebar-link">Sair</a></li>
         <?php endif; ?>
       </ul>

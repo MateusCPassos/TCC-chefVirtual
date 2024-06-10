@@ -11,7 +11,7 @@
     <ul>
       <li><a href="cadastrar.php">cadastrar</a></li>
       <li><a href="addCategoria.php">adionar categoria</a></li>
-      <li><a href="deletarReceitas.php">deletarReceitas</a></li>
+      <li><a href="listarReceitas.php">Listar receitas</a></li>
     </ul>
   </nav>
 </body>

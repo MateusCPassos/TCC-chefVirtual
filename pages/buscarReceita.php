@@ -29,6 +29,7 @@ require_once "header.php";
     <form method="GET" action="buscarReceita.php" class="form-busca">
       <input type="text" name="search" placeholder="Buscar receita" required>
       <button type="submit">Buscar</button>
+      <link rel="shortcut icon" href="../assets/img/icone.png">
     </form>
 
     <?php

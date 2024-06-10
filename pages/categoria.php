@@ -10,6 +10,8 @@ require_once "header.php";
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Categorias</title>
   <link rel="stylesheet" href="../css/categorias.css">
+  <link rel="shortcut icon" href="../assets/img/icone.png">
+
 </head>
 
 <body>

@@ -7,6 +7,8 @@
   <title>Receita Favorita</title>
   <link rel="stylesheet" href="../css/receitaFavorita.css">
   <link rel="stylesheet" href="../fontawesome/css/all.min.css">
+  <link rel="shortcut icon" href="../assets/img/icone.png">
+
 </head>
 
 <body>
@@ -165,7 +167,9 @@
             $stmt_avaliacoes->execute([$recipe_id]);
             $avaliacoes = $stmt_avaliacoes->fetchAll(PDO::FETCH_ASSOC);
             foreach ($avaliacoes as $avaliacao) {
-              echo "<div class='avaliacao'><img src='../" . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'><strong>" . htmlspecialchars($avaliacao['usuario_nome']) . "</strong> (" . htmlspecialchars($avaliacao['data']) . "): " . htmlspecialchars($avaliacao['avaliacaoDoPrato']) . "</div>";
+
+             //echo "<div class='avaliacao'><img src='../" . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'><strong>" . htmlspecialchars($avaliacao['usuario_nome']) . "</strong> (" . htmlspecialchars($avaliacao['data']) . "): " . htmlspecialchars($avaliacao['avaliacaoDoPrato']) . "</div>";
+            echo "<div class='avaliacao'><img src=' " . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'><strong>" . htmlspecialchars($avaliacao['usuario_nome']) . "</strong> (" . htmlspecialchars($avaliacao['data']) . "): " . htmlspecialchars($avaliacao['avaliacaoDoPrato']) . "</div>";
             }
           } else {
             echo "<p class='error-message'>Receita não encontrada.</p>";
@@ -182,4 +186,5 @@
   </div>
 
 </body>
+
 </html>

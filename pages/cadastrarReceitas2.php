@@ -31,6 +31,8 @@ if (!$recipe_id || !$recipe_exists) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Materiais</title>
     <link rel="stylesheet" href="../css/cadastroReceitas2.css">
+    <link rel="shortcut icon" href="../assets/img/icone.png">
+
 </head>
 
 <body>

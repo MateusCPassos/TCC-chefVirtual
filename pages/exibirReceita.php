@@ -73,7 +73,7 @@
               }
             }
 
-            echo "<p class='usuario-info'>Receita criada por: $usuario_nome <img src='../" . htmlspecialchars($usuario_foto) . "' alt='Foto do Usuário' class='usuario-foto'> </p>";
+            echo "<p class='usuario-info'>Receita criada por: $usuario_nome </p>";
     ?>
             <hr>
             <div class="header">

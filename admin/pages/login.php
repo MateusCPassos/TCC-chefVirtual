@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $error = "Senha incorreta ou E-mail incoreto.";
         }
     } else {
-        $error =  "você não tem permissão para acessar esta área.";
+        $error =  "Senha incorreta ou E-mail incoreto.";
     }
 }
 ?>

@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 2.0rem;
+}
+
+.naoCadastrada {
+  text-align: center;
+}
+
+.img img {
+  width: 350px;
+}
+
+.txtImg {
+  font-size: 30px;
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination a {
+  display: inline-block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
+.pagination .current {
+  display: inline-block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #FFB525;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.receita {
+  list-style-type: none;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  width: 300px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left; 
+}
+
+.receitas ul {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.receita img.foto-prato {
+  width: 100%;
+  height: 200px; 
+  object-fit: cover; 
+  margin-bottom: 10px;
+}
+
+.receita h3 a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: block; 
+}
+
+.receita h3 {
+  margin: 0 0 10px 0; 
+}
+
+.receita p {
+  margin-top: 5px;
+  color: #666;
+}
+
+.receita a.button {
+  display: block;
+  padding: 10px;
+  background-color: #FFB525;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.receita a.button:hover {
+  background-color: #FFA200;
+}

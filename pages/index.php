@@ -34,6 +34,9 @@ $receitas_recomendadas = $stmt_receitas_mais_visitadas->fetchAll(PDO::FETCH_ASSO
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>home</title>
   <link rel="stylesheet" href="../css/index.css">
+  <link rel="shortcut icon" href="../assets/img/icone.png">
+
+  
 </head>
 
 <body>

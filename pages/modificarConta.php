@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Modificar Conta</title>
   <link rel="stylesheet" href="../css/modificarConta.css">
+  <link rel="shortcut icon" href="../assets/img/icone.png">
+
 </head>
 <body>
   <?php
@@ -13,6 +15,7 @@
   if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
       header("location: login.php");
       exit;
+
   }
 
   $user_id = $_SESSION['id'];
@@ -59,7 +62,10 @@
           echo "<p class='error'>Erro ao atualizar a conta. Tente novamente.</p>";
       }
   }
+  require_once "header.php";
+
   ?>
+  <div class="espaco"></div>
   <div class="container">
     <h2>Modificar Conta</h2>
     <form action="" method="post" enctype="multipart/form-data">
@@ -82,5 +88,9 @@
       <button type="submit">Atualizar Conta</button>
     </form>
   </div>
+
+  <?php
+  require_once 'footer.php';
+  ?>
 </body>
 </html>

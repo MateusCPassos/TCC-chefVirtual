@@ -41,6 +41,8 @@ include "header.php";
   <title>Login</title>
   <link rel="stylesheet" href="../css/login.css">
   <link rel="stylesheet" href="../fontawesome/css/all.min.css">
+  <link rel="shortcut icon" href="../assets/img/icone.png">
+
 </head>
 
 <body>

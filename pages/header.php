@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../css/header.css">
   <link rel="stylesheet" href="../fontawesome/css/all.min.css">
   <link rel="stylesheet" href="../css/sidebar.css">
+  <link rel="shortcut icon" href="../assets/img/icone.png">
   </head>
 
 <body>

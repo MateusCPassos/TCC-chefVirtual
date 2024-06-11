@@ -57,7 +57,7 @@ if (!$recipe_id || !$recipe_exists) {
                 <label for="material_nome">Material:</label>
             </div>
             <input type="hidden" name="recipe_id" value="<?php echo $recipe_id; ?>">
-            <button type="submit">Salvar Materiais</button>
+            <button type="submit" class="btn-salvar-materiais">Salvar Materiais</button>
         </form>
 
         <h3>Materiais cadastrados:</h3>

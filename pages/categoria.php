@@ -37,6 +37,7 @@ require_once "header.php";
     $pdo = null;
     ?>
   </ul>
+  <?php require_once 'footer.php'; ?>
 </body>
 
 </html>

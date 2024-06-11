@@ -87,7 +87,9 @@ $receitas_recomendadas = $stmt_receitas_mais_visitadas->fetchAll(PDO::FETCH_ASSO
     ?>
   </ul>
     </div>
+   <?php require_once 'footer.php'; ?>
   </main>
+
 </body>
 
 </html>

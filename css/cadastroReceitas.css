@@ -12,6 +12,7 @@ body {
 }
 
 .form {
+  width: 90%;
   max-width: 500px;
   margin: 50px auto;
   padding: 20px;
@@ -64,4 +65,21 @@ textarea.input-field {
 
 .buttonRecipe button:hover {
   background-color: #FFA200;
+}
+
+@media screen and (max-width: 480px) {
+  .form {
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  .input-field {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .buttonRecipe button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
 }

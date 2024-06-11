@@ -74,9 +74,10 @@ include "header.php";
   <div class="cadastrar">
     <p>Não possui cadastro? <a href="cadastrar.php">Cadastrar</a></p>
   </div>
-</body>
-<?php
+  <?php
   require_once 'footer.php';
 ?>
+</body>
+
 
 </html>

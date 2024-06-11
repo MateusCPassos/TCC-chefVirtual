@@ -23,7 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $existing_user = $stmt_check->fetch(PDO::FETCH_ASSOC);
             $stmt_check->closeCursor();
             if ($existing_user) {
-                echo "Este e-mail já está sendo utilizado.";
+               echo "<script>alert('Este e-mail já está sendo utilizado.');</script>";
+
             } else {
                 // Processa o upload da imagem
                 if (isset($_FILES['profile-pic']) && $_FILES['profile-pic']['error'] == UPLOAD_ERR_OK) {
@@ -36,11 +37,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         if (move_uploaded_file($_FILES['profile-pic']['tmp_name'], $uploadFile)) {
                             $profilePic = "arquivosUsuario/{$nomeArquivo}";
                         } else {
-                            echo "<p>Erro ao enviar a imagem. Tente novamente.</p>";
+                            echo "<script>alert('Erro ao enviar a imagem. Tente novamente.');</script>";
+
                             exit;
                         }
                     } else {
-                        echo "<p>Erro ao enviar imagem, selecione um arquivo JPG ou PNG válido</p>";
+                        echo "<script>alert('Erro ao enviar imagem, selecione um arquivo JPG ou PNG válido.');</script>";
                         exit;
                     }
                 }

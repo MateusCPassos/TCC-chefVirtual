@@ -142,7 +142,7 @@
             ?>
               <h2>Adicionar Avaliação</h2>
               <form class="avaliacao-form" action="" method="post">
-                <textarea name="avaliacao" rows="4" cols="50" placeholder="Adicione sua avaliação aqui..."></textarea><br>
+                <textarea name="avaliacao" rows="4" cols="50" required placeholder="Adicione sua avaliação aqui..."></textarea><br>
                 <input type="submit" value="Enviar Avaliação" class="submit-button">
               </form>
     <?php
@@ -150,6 +150,14 @@
                 $avaliacao = $_POST['avaliacao'];
                 $usuario_id = $_SESSION['id'];
                 $data = date('Y-m-d');
+
+                function inverteData($data){
+                  if(count(explode("/",$data)) > 1){
+                      return implode("-",array_reverse(explode("/",$data)));
+                  }elseif(count(explode("-",$data)) > 1){
+                      return implode("/",array_reverse(explode("-",$data)));
+                  }
+              }
 
                 $sql_add_avaliacao = "INSERT INTO avaliacao (avaliacaoDoPrato, data, usuario_id, prato_id) VALUES (?, ?, ?, ?)";
                 $stmt_add_avaliacao = $pdo->prepare($sql_add_avaliacao);
@@ -170,8 +178,17 @@
             $stmt_avaliacoes->execute([$recipe_id]);
             $avaliacoes = $stmt_avaliacoes->fetchAll(PDO::FETCH_ASSOC);
             foreach ($avaliacoes as $avaliacao) {
-              echo "<div class='avaliacao'><img src='../" . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'><strong>" . htmlspecialchars($avaliacao['usuario_nome']) . "</strong> (" . htmlspecialchars($avaliacao['data']) . "): " . htmlspecialchars($avaliacao['avaliacaoDoPrato']) . "</div>";
-            }
+              echo "<div class='avaliacao'>";
+              // Verifica se a foto do usuário existe no local especificado
+              if (!empty($avaliacao['usuario_foto']) && file_exists("../" . htmlspecialchars($avaliacao['usuario_foto']))) {
+                  // Se existir, usa a primeira rota
+                  echo "<img src='../" . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'>";
+              } else {
+                  // Se não existir, usa a segunda rota
+                  echo "<img src=' " . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'>";
+              }
+              echo "<strong>" . htmlspecialchars($avaliacao['usuario_nome']) . "</strong> (" . htmlspecialchars($avaliacao['data']) . "): " . htmlspecialchars($avaliacao['avaliacaoDoPrato']) . "</div>";
+                          }
           } else {
             echo "<p class='error-message'>Receita não encontrada.</p>";
           }

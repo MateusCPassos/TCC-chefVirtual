@@ -178,7 +178,7 @@ h2 {
   background-color: #FFA200;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 480px) {
   .form-busca {
     flex-direction: column;
     align-items: stretch;

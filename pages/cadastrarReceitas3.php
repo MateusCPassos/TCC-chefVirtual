@@ -38,6 +38,7 @@
         <h2>Cadastro de Ingredientes</h2>
         <form action="../cadastroReceitas3.php" method="post">
             <div class="form-group">
+            <label for="ingrediente">Ingrediente:</label>
                 <input name="ingredientes_nome" list="ingredientes">
                 <datalist id="ingredientes">
                     <?php
@@ -52,14 +53,14 @@
                     }
                     ?>
                 </datalist>
-                <label for="ingrediente">Ingrediente:</label>
+                
             </div>
             <div class="form-group">
                 <label for="quantidade">Quantidade:</label>
-                <input type="text" name="quantidade">
+                <input type="text" name="quantidade" required>
             </div>
             <input type="hidden" name="recipe_id" value="<?php echo $recipe_id; ?>">
-            <button type="submit">Salvar Ingrediente</button>
+            <button type="submit" class="btn-salvar-ingrediente">Salvar Ingrediente</button>
         </form>
 
         <h3>Ingredientes cadastrados:</h3>
@@ -74,12 +75,14 @@
 
         foreach ($ingredientes as $ingrediente) {
         ?>
-            <div>
-                <p><?= $ingrediente->NomeIndrediente ?> - <?= $ingrediente->quantidade ?></p>
+            <div class="material-item">
+                <div>
+                    <p><?= $ingrediente->NomeIndrediente ?> - <?= $ingrediente->quantidade ?></p>
+                </div>
                 <form action="../cadastroReceitas3.php" method="post" style="display:inline;">
                     <input type="hidden" name="recipe_id" value="<?php echo $recipe_id; ?>">
                     <input type="hidden" name="remove_ingrediente_id" value="<?php echo $ingrediente->id; ?>">
-                    <button type="submit">Remover</button>
+                    <button type="submit" class="btn-remover-ingrediente">Remover</button>
                 </form>
             </div>
         <?php

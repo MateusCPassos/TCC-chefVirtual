@@ -7,11 +7,11 @@
   font-family: 'Inter', Arial, sans-serif;
 }
 
-.campo{
-  margin: 20px;
+body {
+  background-color: #f0f0f0;
 }
 
-.container {
+.campo {
   max-width: 600px;
   margin: 50px auto;
   padding: 20px;
@@ -22,6 +22,7 @@
 
 h2 {
   margin-top: 15px;
+  margin-bottom: 15px;
   text-align: center;
 }
 
@@ -29,36 +30,76 @@ h3 {
   margin-top: 15px;
 }
 
-
 .form-group {
   margin-bottom: 20px;
 }
 
-label {
-  display: block;
+.input-label {
   font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
 }
 
-select, button, input[type="text"], textarea {
+.input-field {
+  width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
   font-size: 16px;
-  margin-bottom: 10px;
 }
 
-button {
+.input-container {
+  margin-bottom: 15px;
+}
+
+textarea.input-field {
+  resize: vertical;
+}
+
+.buttonRecipe {
+  text-align: center;
+}
+
+.buttonRecipe button {
+  padding: 10px 20px;
   background-color: #FFB525;
   color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 3px;
   cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
 }
 
-button:hover {
+.buttonRecipe button:hover {
   background-color: #FFA200;
 }
 
-.material-list p {
-  margin-bottom: 5px;
+.material-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.material-item p {
+  margin-bottom: 0;
+}
+
+.material-item button {
+  padding: 8px 16px;
+  background-color: #FFB525;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.material-item button:hover {
+  background-color: #FFA200;
 }
 
 .btn-continuar {
@@ -75,4 +116,39 @@ button:hover {
 
 .btn-continuar:hover {
   background-color: #FFA200;
+}
+
+.btn-salvar-materiais {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #FFB525;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.btn-salvar-materiais:hover {
+  background-color: #FFA200;
+}
+
+@media screen and (max-width: 480px) {
+  .campo {
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  .input-field {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .buttonRecipe button,
+  .btn-salvar-materiais {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
 }

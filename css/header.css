@@ -10,6 +10,8 @@
 header {
   background-color: #878787;
   box-shadow: 0px 3px 10px #464646;
+  position: relative;
+  z-index: 1000;
 }
 
 .nav-bar {
@@ -60,20 +62,31 @@ header {
   background-color: #878787;
   box-shadow: 0px 3px 10px #464646;
   height: 100%;
-  width: 200px;
+  width: 250px;
   position: fixed;
   top: 0;
-  right: -200px;
+  right: -250px;
   transition: right 0.3s;
+  z-index: 1000;
 }
 
 .sidebar.active {
   right: 0;
 }
 
+.sidebar-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
 .sidebar-list {
   padding: 20px;
   list-style: none;
+}
+
+.sidebar-list li {
+  margin-bottom: 20px; 
 }
 
 .sidebar-link {
@@ -92,9 +105,9 @@ header {
   cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
   .nav-bar {
-    padding: 1rem; 
+    padding: 1rem;
   }
 
   .logo h1 {
@@ -113,9 +126,9 @@ header {
   }
 
   .sidebar {
-    padding-top: 4rem; 
+    padding-top: 4rem;
     top: 0;
-    left: -200px;
+    left: -250px; 
     right: 0;
   }
 

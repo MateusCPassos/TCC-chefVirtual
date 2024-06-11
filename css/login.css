@@ -7,148 +7,79 @@
   font-family: 'Inter', Arial, sans-serif;
 }
 
-h1 {
-  text-align: center;
-  margin-top: 15px;
-  color: #333;
+body {
+  background-color: #f0f0f0;
 }
 
 .form {
-  max-width: 300px;
-  margin: 0 auto;
+  width: 90%;
+  max-width: 500px;
+  margin: 50px auto;
   padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
+  margin-bottom: 20px;
+}
+
+.input-label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.input-container {
   margin-bottom: 15px;
 }
 
-.form-group .input-label {
-  display: block;
+textarea.input-field {
+  resize: vertical;
 }
 
-.form-group .input-container {
-  position: relative;
-}
-
-.form-group .input-field {
-  width: calc(100% - 30px);
-  padding: 10px;
-  margin-top: 5px;
-  padding-left: 30px;
-}
-
-.form-group .input-field::placeholder {
-  color: #aaa;
-}
-
-.input-icon {
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
-}
-
-.button {
+.buttonRecipe {
   text-align: center;
-  margin-top: 20px;
 }
 
-.button button {
-  width: 50%;
-  cursor: pointer;
+.buttonRecipe button {
+  padding: 10px 20px;
   background-color: #FFB525;
-  color: #000;
+  color: #fff;
+  text-align: center;
   border: none;
-  padding: 10px;
-  border-radius: 5px;
+  border-radius: 3px;
+  cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s;
 }
 
-.button button:hover {
+.buttonRecipe button:hover {
   background-color: #FFA200;
 }
 
-.cadastrar {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.cadastrar a {
-  text-decoration: none;
-  color: #FFB525;
-}
-
-.categoria {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.categoria h1 {
-  margin: 30px 0;
-  font-size: 1.8rem;
-  color: #333;
-}
-
-.categorias-lista {
-  list-style: none;
-  padding: 0;
-  margin: 30px auto;
-  width: 90%;
-  text-align: center;
-}
-
-.categorias-lista li {
-  display: inline-block;
-  margin-right: 30px;
-}
-
-.categorias-lista li:last-child {
-  margin-right: 0;
-}
-
-.categorias-lista li a {
-  display: block;
-  padding: 10px 20px;
-  background-color: #FFB525;
-  border-radius: 5px;
-  text-decoration: none;
-  color: #fff;
-  transition: background-color 0.3s;
-}
-
-.categorias-lista li a:hover {
-  background-color: #FFA200;
-}
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 480px) {
   .form {
-    max-width: 100%;
+    margin: 20px auto;
     padding: 10px;
   }
 
-  .form-group .input-field {
-    width: 100%;
+  .input-field {
+    padding: 8px;
+    font-size: 14px;
   }
 
-  .button button {
-    width: 100%;
-  }
-
-  .button button {
-    width: 100%;
-    cursor: pointer;
-    background-color: #FFB525;
-    color: #000;
-    border: none;
-    padding: 15px;
-    border-radius: 5px;
-    font-size: 16px; 
-    transition: background-color 0.3s;
-  }
-
-  .button button:hover {
-    background-color: #FFA200;
+  .buttonRecipe button {
+    padding: 8px 16px;
+    font-size: 14px;
   }
 }

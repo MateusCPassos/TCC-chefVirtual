@@ -70,7 +70,7 @@
               }
             }
 
-            echo "<p class='usuario-info'>Receita criada por: <img src='../" . htmlspecialchars($usuario_foto) . "' alt='Foto do Usuário' class='usuario-foto'> $usuario_nome</p>";
+            echo "<p class='usuario-info'>Receita criada por: $usuario_nome</p>";
     ?>
             <hr>
             <div class="header">
@@ -169,8 +169,17 @@
             foreach ($avaliacoes as $avaliacao) {
 
              //echo "<div class='avaliacao'><img src='../" . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'><strong>" . htmlspecialchars($avaliacao['usuario_nome']) . "</strong> (" . htmlspecialchars($avaliacao['data']) . "): " . htmlspecialchars($avaliacao['avaliacaoDoPrato']) . "</div>";
-            echo "<div class='avaliacao'><img src=' " . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'><strong>" . htmlspecialchars($avaliacao['usuario_nome']) . "</strong> (" . htmlspecialchars($avaliacao['data']) . "): " . htmlspecialchars($avaliacao['avaliacaoDoPrato']) . "</div>";
-            }
+             echo "<div class='avaliacao'>";
+             // Verifica se a foto do usuário existe no local especificado
+             if (!empty($avaliacao['usuario_foto']) && file_exists("../" . htmlspecialchars($avaliacao['usuario_foto']))) {
+                 // Se existir, usa a primeira rota
+                 echo "<img src='../" . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'>";
+             } else {
+                 // Se não existir, usa a segunda rota
+                 echo "<img src=' " . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'>";
+             }
+             echo "<strong>" . htmlspecialchars($avaliacao['usuario_nome']) . "</strong> (" . htmlspecialchars($avaliacao['data']) . "): " . htmlspecialchars($avaliacao['avaliacaoDoPrato']) . "</div>";
+                         }
           } else {
             echo "<p class='error-message'>Receita não encontrada.</p>";
           }

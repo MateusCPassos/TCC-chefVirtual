@@ -56,7 +56,7 @@ h2 {
 .categorias-lista li a:hover {
   background-color: #FFA200;
 }
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .categoria-foto {
     width: 100px;
     height: 100px;

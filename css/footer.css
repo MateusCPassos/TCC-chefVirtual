@@ -19,6 +19,8 @@ footer {
   background-color: #878787;
   box-shadow: 0px 3px 10px #464646;
   margin-top: auto; 
+  width: 100%; /* Certifica-se que o footer ocupe toda a largura */
+
   padding: 8px 0;
 }
 

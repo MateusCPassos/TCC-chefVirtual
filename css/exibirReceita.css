@@ -1,56 +1,128 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
 
-* {
+/* exibirReceita.css */
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: #f4f4f4;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', Arial, sans-serif;
-}
-
-main{
-  margin: 15px;
 }
 
 .container {
-  background-color: #fff; 
-  border-radius: 5px; 
+  width: 90%;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-  font-size: 24px;
+.nome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 20px;
-  margin: 10px;
-
 }
 
-p {
+.nome h2 {
+  margin: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.foto {
+  max-width: 100%;
+  max-height: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.foto img {
+  width: 100%;
+  height: auto;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section h2 {
+  font-size: 20px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.ingredientes,
+.materiais {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 10px;
-  margin: 10px;
 }
 
-a {
-  display: inline-block;
-  margin-right: 10px;
-  color: #007bff;
+.ingredientes p,
+.materiais p {
+  margin: 5px 0;
+}
+
+.details-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.details-grid p {
+  flex-basis: 45%;
+  margin: 0 10px;
+}
+
+.observacoes {
+  margin-top: 20px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.links a {
   text-decoration: none;
+  color: #0066cc;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-a:hover {
+.links a:hover {
   text-decoration: underline;
 }
 
-.receita a.button {
-  display: block;
-  padding: 10px;
-  background-color: #FFB525;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
+/* exibirReceita.css */
 
-.receita a.button:hover {
-  background-color: #FFA200;
+/* Estilos padrão */
+
+/* Consulta de mídia para dispositivos com largura máxima de 436 pixels */
+@media screen and (max-width: 436px) {
+  .nome {
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .nome h2 {
+    margin-bottom: 10px;
+  }
+
+  .foto {
+    margin-bottom: 20px;
+  }
+
+  .details-grid p {
+    flex-basis: 100%;
+    margin: 0;
+  }
+
+  .section h2 {
+    font-size: 18px;
+  }
 }

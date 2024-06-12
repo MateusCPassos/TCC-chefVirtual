@@ -11,12 +11,8 @@ body {
   background-color: #f0f0f0;
 }
 
-h2{
-  text-align: center;
-  margin-top: 15px;
-}
-
 .form {
+  width: 90%;
   max-width: 500px;
   margin: 50px auto;
   padding: 20px;
@@ -35,20 +31,60 @@ h2{
   margin-bottom: 5px;
 }
 
-.input-field {
-  width: 100%;
-  padding: 10px;
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 3px;
-  font-size: 16px;
 }
 
-.input-container {
-  margin-bottom: 15px;
+.input-icon {
+  padding: 10px;
+  color: #aaa;
+}
+
+.input-field {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 0 3px 3px 0;
+  font-size: 16px;
 }
 
 textarea.input-field {
   resize: vertical;
+}
+
+.buttonRecipe {
+  text-align: center;
+}
+
+.buttonRecipe button {
+  padding: 10px 20px;
+  background-color: #FFB525;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.buttonRecipe button:hover {
+  background-color: #FFA200;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 15px;
+}
+
+p {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .buttonRecipe {
@@ -68,4 +104,21 @@ textarea.input-field {
 
 .buttonRecipe:hover {
   background-color: #FFA200;
+}
+
+@media screen and (max-width: 480px) {
+  .form {
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  .input-field {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .buttonRecipe button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
 }

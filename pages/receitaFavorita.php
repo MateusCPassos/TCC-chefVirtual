@@ -125,13 +125,13 @@
             </div>
 
             <div class="details-grid">
-              <p>Custo: R$ <?php echo $cost; ?></p>
-              <p>Tempo de Preparo: <?php echo $preparation_time; ?> minutos</p>
-              <p>Categoria: <?php echo $category_name; ?></p>
+              <p><strong> Custo: </strong> R$ <?php echo $cost; ?></p>
+              <p><strong> Tempo de Preparo: </strong> <?php echo $preparation_time; ?> minutos</p>
+              <p><strong> Categoria: </strong><?php echo $category_name; ?></p>
             </div>
 
-            <div class="observacoes">
-              <p>Observações: <?php echo $observations; ?></p>
+            <div class="section observacoes">
+              <p><strong> Observações:</strong> <?php echo $observations; ?></p>
             </div>
             <hr>
             <?php

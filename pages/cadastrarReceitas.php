@@ -30,18 +30,17 @@ require_once "header.php";
   <link rel="stylesheet" href="../css/cadastroReceitas.css">
   <link rel="stylesheet" href="../fontawesome/css/all.min.css">
   <link rel="shortcut icon" href="../assets/img/icone.png">
-
 </head>
 
 <body>
   <form enctype="multipart/form-data" method="post" action="../cadastroReceitas.php" class="form" onsubmit="return validateForm()">
-  <div class="form-group">
+    <div class="form-group">
       <label for="arquivo" class="input-label">Imagem do Prato:</label>
       <div class="input-container">
         <input type="file" id="arquivo" name="arquivo" class="input-field" required>
       </div>
     </div>
-    
+
     <div class="form-group">
       <label for="nameRecipe" class="input-label">Nome da Receita:</label>
       <div class="input-container">
@@ -87,12 +86,31 @@ require_once "header.php";
       </div>
     </div>
 
-    
-
     <div class="buttonRecipe">
       <button type="submit">Cadastrar</button>
     </div>
   </form>
+
+  <script>
+    function validateForm() {
+      var price = document.getElementById("price").value;
+      var timePreparation = document.getElementById("timePreparation").value;
+
+      // Verifica se o preço contém apenas números
+      if (!(/^\d*\.?\d*$/.test(price))) {
+        alert("Por favor, insira apenas números no campo de preço.");
+        return false;
+      }
+
+      // Verifica se o tempo de preparo contém apenas números
+      if (!(/^\d+$/.test(timePreparation))) {
+        alert("Por favor, insira apenas números no campo de tempo de preparo.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
 </body>
 
 </html>

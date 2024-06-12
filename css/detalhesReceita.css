@@ -27,8 +27,7 @@ body {
   margin: 0;
   margin-right: 20px;
   font-size: 24px;
-  margin: 100px;
-
+  margin: 30px;
 }
 
 .foto {
@@ -65,13 +64,13 @@ body {
 
 .details-grid {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 20px;
-  
 }
 
 .details-grid p {
-  flex: 1;
+  flex-basis: 45%; /* Ajuste para caber dois itens por linha */
   margin: 0 10px;
 }
 
@@ -110,4 +109,34 @@ form button:hover {
 
 .links a:hover {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 436px) {
+  .container {
+    width: 90%; /* Reduz a largura da container */
+  }
+
+  .nome h2 {
+    font-size: 20px; /* Reduz o tamanho do título */
+  }
+
+  .foto {
+    max-width: 100%; 
+  }
+
+  .details-grid p {
+    flex-basis: 100%; 
+    margin: 0; 
+  }
+
+  .nome {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+  
+  .nome h2 {
+    margin-top: 10px;
+    text-align: center; 
+  }
 }

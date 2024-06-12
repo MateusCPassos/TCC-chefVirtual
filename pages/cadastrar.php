@@ -16,9 +16,9 @@ require_once "header.php";
 
 <body>
     <h1>Cadastrar</h1>
-    <form enctype="multipart/form-data" method="post" action="../cadastro.php" class="form" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <form enctype="multipart/form-data" method="post" action="../cadastro.php" class="form" onsubmit="return validateForm()">
 
-    <div class="form-group">
+        <div class="form-group">
             <label for="profile-pic" class="input-label">Foto de Perfil:</label>
             <div class="input-container">
                 <input type="file" id="profile-pic" name="profile-pic" class="input-field" accept="image/*">
@@ -28,41 +28,39 @@ require_once "header.php";
         <div class="form-group">
             <label for="name" class="input-label">Nome:</label>
             <div class="input-container">
-                <input type="text" id="name" name="name" required class="input-field" placeholder="ex: João Silva">
                 <i class="fa-regular fa-user input-icon"></i>
+                <input type="text" id="name" name="name" required class="input-field" placeholder="ex: João Silva">
             </div>
         </div>
-        
 
-        
         <div class="form-group">
             <label for="email" class="input-label">E-mail:</label>
             <div class="input-container">
-                <input type="email" id="email" name="email" required class="input-field" placeholder="ex: joaosilva@gmail.com">
                 <i class="fas fa-envelope input-icon"></i>
+                <input type="email" id="email" name="email" required class="input-field" placeholder="ex: joaosilva@gmail.com">
             </div>
         </div>
         <div class="form-group">
             <label for="password" class="input-label">Senha:</label>
             <div class="input-container">
-                <input type="password" id="password" name="password" required class="input-field" placeholder="ex: Joao1234">
                 <i class="fas fa-lock input-icon"></i>
+                <input type="password" id="password" name="password" required class="input-field" placeholder="ex: Joao1234">
             </div>
         </div>
         <div class="form-group">
             <label for="confirmPassword" class="input-label">Confirmação de Senha:</label>
             <div class="input-container">
-                <input type="password" id="confirmPassword" name="confirmPassword" required class="input-field" placeholder="ex: Joao1234">
                 <i class="fas fa-lock input-icon"></i>
+                <input type="password" id="confirmPassword" name="confirmPassword" required class="input-field" placeholder="ex: Joao1234">
             </div>
         </div>
-        <div class="button">
+        <div class="buttonRecipe">
             <button type="submit">Cadastrar</button>
         </div>
     </form>
 
     <div class="login">
-        <p>Possui cadastro?</p><a href="login.php">Login</a>
+        <p>Possui cadastro? <a href="login.php">Login</a></p>
     </div>
 
     <script>

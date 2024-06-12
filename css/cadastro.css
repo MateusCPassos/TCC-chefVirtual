@@ -7,106 +7,108 @@
   font-family: 'Inter', Arial, sans-serif;
 }
 
+body {
+  background-color: #f0f0f0;
+}
+
+.form {
+  width: 90%;
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.input-label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.input-icon {
+  padding: 10px;
+  color: #aaa;
+}
+
+.input-field {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 0 3px 3px 0;
+  font-size: 16px;
+}
+
+textarea.input-field {
+  resize: vertical;
+}
+
+.buttonRecipe {
+  text-align: center;
+}
+
+.buttonRecipe button {
+  padding: 10px 20px;
+  background-color: #FFB525;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.buttonRecipe button:hover {
+  background-color: #FFA200;
+}
+
 h1 {
   text-align: center;
   margin-top: 15px;
 }
 
-.form {
-  max-width: 300px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.form-group {
+p {
+  text-align: center;
+  margin-top: 15px;
   margin-bottom: 15px;
 }
 
-.form-group .input-label {
-  display: block;
-}
-
-.form-group .input-container {
-  position: relative;
-}
-
-.form-group .input-field {
-  width: calc(100% - 30px);
-  padding: 10px;
-  margin-top: 5px;
-  padding-left: 30px;
-}
-
-.form-group .input-field::placeholder {
-  color: #aaa;
-}
-
-.input-icon {
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
-}
-
-.button {
-  text-align: center;
-}
-
-.button button {
-  width: 60%;
-  cursor: pointer;
-  background-color: #FFB525;
-  color: #000;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: background-color 0.3s;
-}
-
-.button button:hover {
-  background-color: #FFA200;
-}
-
-.login {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.login a {
+p a {
   text-decoration: none;
+  color: #FFA200;
+}
+
+p a:hover {
   color: #FFB525;
 }
 
-
 @media screen and (max-width: 480px) {
   .form {
-    max-width: 100%;
+    margin: 20px auto;
     padding: 10px;
   }
 
-  .form-group .input-field {
-    width: 100%;
+  .input-field {
+    padding: 8px;
+    font-size: 14px;
   }
 
-  .button button {
-    width: 50%;
+  .buttonRecipe button {
+    padding: 8px 16px;
+    font-size: 14px;
   }
-
-  .button button {
-    width: 50%;
-    cursor: pointer;
-    background-color: #FFB525;
-    color: #000;
-    border: none;
-    padding: 15px;
-    border-radius: 5px;
-    font-size: 16px; 
-    transition: background-color 0.3s;
-}
-
-.button button:hover {
-    background-color: #FFA200;
-}
-
 }

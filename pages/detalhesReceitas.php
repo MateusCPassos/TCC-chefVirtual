@@ -164,10 +164,11 @@
                     echo "</div>";
 
                     // Detalhes adicionais sobre a receita
+                    echo "<hr>";
                     echo "<div class='section details-grid'>";
-                    echo "<p>Custo: R$ $cost</p>";
-                    echo "<p>Tempo de Preparo: $preparation_time minutos</p>";
-                    echo "<p>Categoria: $category_name</p>";
+                    echo "<p><strong>Custo:</strong> R$ $cost</p>";
+                    echo "<p><strong>Tempo de Preparo:</strong> $preparation_time minutos </p>";
+                    echo "<p><strong>Categoria: </strong>$category_name</p>";
                     echo "</div>";
 
                     // Observações

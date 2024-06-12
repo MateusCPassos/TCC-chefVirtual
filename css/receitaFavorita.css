@@ -152,4 +152,27 @@ form button:hover {
     resize: vertical; 
   }
 
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header .foto {
+    margin-right: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .header .nome {
+    margin-top: 10px;
+  }
+
+  .details-grid p {
+    margin: 10px 0;
+  }
+
+  .avaliacao-form textarea {
+    width: calc(100% - 40px); 
+  }
+
 }

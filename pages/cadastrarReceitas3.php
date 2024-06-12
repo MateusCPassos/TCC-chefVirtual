@@ -38,7 +38,7 @@
         <h2>Cadastro de Ingredientes</h2>
         <form action="../cadastroReceitas3.php" method="post">
             <div class="form-group">
-            <label for="ingrediente">Ingrediente:</label>
+                <label for="ingrediente">Ingrediente:</label>
                 <input name="ingredientes_nome" list="ingredientes">
                 <datalist id="ingredientes">
                     <?php
@@ -53,7 +53,7 @@
                     }
                     ?>
                 </datalist>
-                
+
             </div>
             <div class="form-group">
                 <label for="quantidade">Quantidade:</label>

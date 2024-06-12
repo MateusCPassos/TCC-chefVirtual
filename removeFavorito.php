@@ -19,4 +19,3 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
 } else {
     echo "Você precisa estar logado para remover dos favoritos.";
 }
-?>

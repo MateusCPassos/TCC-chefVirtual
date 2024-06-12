@@ -16,8 +16,8 @@
 
     // Verifica se o usuário está autenticado e se é administrador
     if (!isset($_SESSION["loggedin"]) || $_SESSION["tipoUsuario"] !== 'admin') {
-      header("Location: pages/login.php");
-      exit;
+        header("Location: pages/login.php");
+        exit;
     }
 
     // Função para excluir a receita
@@ -102,7 +102,7 @@
                 } else {
                     echo "Erro ao consultar a categoria.";
                 }
-                ?>
+    ?>
                 <div class="container">
                     <div class="nome">
                         <div class="foto">
@@ -126,74 +126,74 @@
                         echo "<h2>$name</h2>";
                         ?>
                     </div>
-                    <?php
-                    // Exibe os ingredientes cadastrados para a receita
-                    echo "<div class='section ingredientes'><h2>Ingredientes:</h2>";
-                    $sql_ingredientes = "SELECT i.id, i.NomeIndrediente, pi.quantidade FROM prato_has_indredientes pi
+        <?php
+                // Exibe os ingredientes cadastrados para a receita
+                echo "<div class='section ingredientes'><h2>Ingredientes:</h2>";
+                $sql_ingredientes = "SELECT i.id, i.NomeIndrediente, pi.quantidade FROM prato_has_indredientes pi
                                          INNER JOIN indredientes i ON (i.id = pi.indredientes_id)
                                          WHERE pi.prato_id = ?";
-                    $stmt_ingredientes = $pdo->prepare($sql_ingredientes);
-                    $stmt_ingredientes->execute([$recipe_id]);
-                    $ingredientes = $stmt_ingredientes->fetchAll(PDO::FETCH_OBJ);
+                $stmt_ingredientes = $pdo->prepare($sql_ingredientes);
+                $stmt_ingredientes->execute([$recipe_id]);
+                $ingredientes = $stmt_ingredientes->fetchAll(PDO::FETCH_OBJ);
 
-                    foreach ($ingredientes as $ingrediente) {
-                        echo "<p>$ingrediente->NomeIndrediente - $ingrediente->quantidade</p>";
-                    }
-                    echo "</div>";
+                foreach ($ingredientes as $ingrediente) {
+                    echo "<p>$ingrediente->NomeIndrediente - $ingrediente->quantidade</p>";
+                }
+                echo "</div>";
 
-                    echo "<div class='section'><h2>Modo Preparo:</h2><p>$description</p></div>";
+                echo "<div class='section'><h2>Modo Preparo:</h2><p>$description</p></div>";
 
-                    // Exibe os materiais cadastrados para a receita
-                    echo "<div class='section materiais'><h2>Materiais cadastrados:</h2>";
-                    $sql_materiais = "SELECT m.id, m.nomeMaterial, mp.prato_id FROM materiais_has_prato mp
+                // Exibe os materiais cadastrados para a receita
+                echo "<div class='section materiais'><h2>Materiais cadastrados:</h2>";
+                $sql_materiais = "SELECT m.id, m.nomeMaterial, mp.prato_id FROM materiais_has_prato mp
                               INNER JOIN materiais m ON (m.id = mp.materiais_id)
                               WHERE mp.prato_id = ? ORDER BY m.nomeMaterial";
-                    $stmt_materiais = $pdo->prepare($sql_materiais);
-                    $stmt_materiais->execute([$recipe_id]);
-                    $materiais = $stmt_materiais->fetchAll(PDO::FETCH_OBJ);
+                $stmt_materiais = $pdo->prepare($sql_materiais);
+                $stmt_materiais->execute([$recipe_id]);
+                $materiais = $stmt_materiais->fetchAll(PDO::FETCH_OBJ);
 
-                    foreach ($materiais as $material) {
-                        echo "<p>$material->nomeMaterial</p>";
-                    }
-                    echo "</div>";
-
-                    // Detalhes adicionais sobre a receita
-                    echo "<div class='section details-grid'>";
-                    echo "<p>Custo: R$ $cost</p>";
-                    echo "<p>Tempo de Preparo: $preparation_time minutos</p>";
-                    echo "<p>Categoria: $category_name</p>";
-                    echo "</div>";
-
-                    // Observações
-                    echo "<div class='section observacoes'>";
-                    echo "<h2>Observações:</h2>";
-                    echo "<p>$observations</p>";
-                    echo "</div>";
-
-                    // Botão de exclusão da receita
-                    echo '<form id="delete-form" action="" method="POST" onsubmit="return confirmDelete()">';
-                    echo '<input type="hidden" name="recipe_id" value="' . $recipe_id . '">';
-                    echo '<button type="submit">Excluir</button>';
-                    echo '</form>';
-                } else {
-                    echo "Receita não encontrada.";
+                foreach ($materiais as $material) {
+                    echo "<p>$material->nomeMaterial</p>";
                 }
+                echo "</div>";
+
+                // Detalhes adicionais sobre a receita
+                echo "<div class='section details-grid'>";
+                echo "<p>Custo: R$ $cost</p>";
+                echo "<p>Tempo de Preparo: $preparation_time minutos</p>";
+                echo "<p>Categoria: $category_name</p>";
+                echo "</div>";
+
+                // Observações
+                echo "<div class='section observacoes'>";
+                echo "<h2>Observações:</h2>";
+                echo "<p>$observations</p>";
+                echo "</div>";
+
+                // Botão de exclusão da receita
+                echo '<form id="delete-form" action="" method="POST" onsubmit="return confirmDelete()">';
+                echo '<input type="hidden" name="recipe_id" value="' . $recipe_id . '">';
+                echo '<button type="submit">Excluir</button>';
+                echo '</form>';
             } else {
-                echo "Erro ao consultar a receita.";
+                echo "Receita não encontrada.";
             }
         } else {
-            echo "ID da receita não foi especificado.";
+            echo "Erro ao consultar a receita.";
         }
+    } else {
+        echo "ID da receita não foi especificado.";
+    }
 
-        $pdo = null;
+    $pdo = null;
         ?>
-    </div>
+                </div>
 
-    <script>
-        function confirmDelete() {
-            return confirm("Tem certeza de que deseja excluir esta receita?");
-        }
-    </script>
+                <script>
+                    function confirmDelete() {
+                        return confirm("Tem certeza de que deseja excluir esta receita?");
+                    }
+                </script>
 
 </body>
 

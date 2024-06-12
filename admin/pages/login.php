@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../fontawesome/css/all.min.css">
 </head>
+
 <body>
     <h1>Admin Login</h1>
     <form method="post" action="" class="form">
@@ -56,11 +58,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="button">
             <button type="submit">Login</button>
         </div>
-        <?php if (isset($error)): ?>
+        <?php if (isset($error)) : ?>
             <div class="error-message">
                 <?php echo $error; ?>
             </div>
         <?php endif; ?>
     </form>
 </body>
+
 </html>

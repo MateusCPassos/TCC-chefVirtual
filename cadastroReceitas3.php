@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt_check_ingrediente->execute([$ingrediente_id, $recipe_id]);
 
             if ($stmt_check_ingrediente->rowCount() > 0) {
-                // Remove o ingrediente associado à receita
+                // Remove o ingrediente da receita
                 $sql_delete_ingrediente = "DELETE FROM prato_has_indredientes WHERE indredientes_id = ? AND prato_id = ?";
                 $stmt_delete_ingrediente = $pdo->prepare($sql_delete_ingrediente);
                 if ($stmt_delete_ingrediente->execute([$ingrediente_id, $recipe_id])) {
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $ingrediente_nome = isset($_POST["ingredientes_nome"]) ? $_POST["ingredientes_nome"] : '';
             $quantidade = isset($_POST["quantidade"]) ? $_POST["quantidade"] : '';
 
-            // Busca o ID do ingrediente com base no nome fornecido
+            // Busca ingrediente com base no nome fornecido
             $sql_select_ingrediente_id = "SELECT id FROM indredientes WHERE NomeIndrediente = ?";
             $stmt_select_ingrediente_id = $pdo->prepare($sql_select_ingrediente_id);
             $stmt_select_ingrediente_id->execute([$ingrediente_nome]);
@@ -64,8 +64,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             }
         }
-        
-        // Redireciona de volta para a página de cadastro de ingredientes
+
+        // Redireciona de volta para a página 
         header("Location: pages/cadastrarReceitas3.php?recipe_id=" . $recipe_id);
         exit();
     } else {
@@ -74,4 +74,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $pdo = null;
-?>

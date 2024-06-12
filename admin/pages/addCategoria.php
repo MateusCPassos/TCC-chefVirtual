@@ -22,7 +22,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["tipoUsuario"] !== 'admin') {
 
 <body>
     <?php
-        require_once 'menu.php';
+    require_once 'menu.php';
     ?>
     <h1>Adicionar Categoria</h1>
     <form enctype="multipart/form-data" method="post" action="../adionarCategoria.php" class="form" onsubmit="return validateForm()">

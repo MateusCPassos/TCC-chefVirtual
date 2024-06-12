@@ -31,33 +31,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
 
-        // Atualiza os dados do usuário no banco de dados
-        if ($senha) {$sql_update = "UPDATE usuario SET nome = ?, email = ?, senha = ?, fotoUsuariocol = ? WHERE id = ?";
-          $stmt_update = $pdo->prepare($sql_update);
-          if ($stmt_update->execute([$nome, $email, $senha, $foto, $user_id])) {
-              echo "<p class='success'>Conta atualizada com sucesso!</p>";
-              // Atualiza os dados na sessão
-              $_SESSION['nome'] = $nome;
-              $_SESSION['email'] = $email;
-              $_SESSION['foto'] = $foto;
-          } else {
-              echo "<p class='error'>Erro ao atualizar a conta. Tente novamente.</p>";
-          }
-      } else {
-          $sql_update = "UPDATE usuario SET nome = ?, email = ?, fotoUsuariocol = ? WHERE id = ?";
-          $stmt_update = $pdo->prepare($sql_update);
-          if ($stmt_update->execute([$nome, $email, $foto, $user_id])) {
-              echo "<p class='success'>Conta atualizada com sucesso!</p>";
-              // Atualiza os dados na sessão
-              $_SESSION['nome'] = $nome;
-              $_SESSION['email'] = $email;
-              $_SESSION['foto'] = $foto;
-          } else {
-              echo "<p class='error'>Erro ao atualizar a conta. Tente novamente.</p>";
-          }
-      }
-  }
+        // Atualiza os dados do usuário no banco
+        if ($senha) {
+            $sql_update = "UPDATE usuario SET nome = ?, email = ?, senha = ?, fotoUsuariocol = ? WHERE id = ?";
+            $stmt_update = $pdo->prepare($sql_update);
+            if ($stmt_update->execute([$nome, $email, $senha, $foto, $user_id])) {
+                echo "<p class='success'>Conta atualizada com sucesso!</p>";
+                // Atualiza os dados na sessão
+                $_SESSION['nome'] = $nome;
+                $_SESSION['email'] = $email;
+                $_SESSION['foto'] = $foto;
+            } else {
+                echo "<p class='error'>Erro ao atualizar a conta. Tente novamente.</p>";
+            }
+        } else {
+            $sql_update = "UPDATE usuario SET nome = ?, email = ?, fotoUsuariocol = ? WHERE id = ?";
+            $stmt_update = $pdo->prepare($sql_update);
+            if ($stmt_update->execute([$nome, $email, $foto, $user_id])) {
+                echo "<p class='success'>Conta atualizada com sucesso!</p>";
+                // Atualiza os dados na sessão
+                $_SESSION['nome'] = $nome;
+                $_SESSION['email'] = $email;
+                $_SESSION['foto'] = $foto;
+            } else {
+                echo "<p class='error'>Erro ao atualizar a conta. Tente novamente.</p>";
+            }
+        }
+    }
 }
-?>
-
-           

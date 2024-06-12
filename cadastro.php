@@ -23,8 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $existing_user = $stmt_check->fetch(PDO::FETCH_ASSOC);
             $stmt_check->closeCursor();
             if ($existing_user) {
-               echo "<script>alert('Este e-mail já está sendo utilizado.');</script>";
-
+                echo "<script>alert('Este e-mail já está sendo utilizado.');</script>";
             } else {
                 // Processa o upload da imagem
                 if (isset($_FILES['profile-pic']) && $_FILES['profile-pic']['error'] == UPLOAD_ERR_OK) {

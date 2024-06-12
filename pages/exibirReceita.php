@@ -151,13 +151,14 @@
                 $usuario_id = $_SESSION['id'];
                 $data = date('Y-m-d');
 
-                function inverteData($data){
-                  if(count(explode("/",$data)) > 1){
-                      return implode("-",array_reverse(explode("/",$data)));
-                  }elseif(count(explode("-",$data)) > 1){
-                      return implode("/",array_reverse(explode("-",$data)));
+                function inverteData($data)
+                {
+                  if (count(explode("/", $data)) > 1) {
+                    return implode("-", array_reverse(explode("/", $data)));
+                  } elseif (count(explode("-", $data)) > 1) {
+                    return implode("/", array_reverse(explode("-", $data)));
                   }
-              }
+                }
 
                 $sql_add_avaliacao = "INSERT INTO avaliacao (avaliacaoDoPrato, data, usuario_id, prato_id) VALUES (?, ?, ?, ?)";
                 $stmt_add_avaliacao = $pdo->prepare($sql_add_avaliacao);
@@ -181,14 +182,14 @@
               echo "<div class='avaliacao'>";
               // Verifica se a foto do usuário existe no local especificado
               if (!empty($avaliacao['usuario_foto']) && file_exists("../" . htmlspecialchars($avaliacao['usuario_foto']))) {
-                  // Se existir, usa a primeira rota
-                  echo "<img src='../" . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'>";
+                // Se existir, usa a primeira rota
+                echo "<img src='../" . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'>";
               } else {
-                  // Se não existir, usa a segunda rota
-                  echo "<img src=' " . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'>";
+                // Se não existir, usa a segunda rota
+                echo "<img src=' " . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'>";
               }
               echo "<strong>" . htmlspecialchars($avaliacao['usuario_nome']) . "</strong> (" . htmlspecialchars($avaliacao['data']) . "): " . htmlspecialchars($avaliacao['avaliacaoDoPrato']) . "</div>";
-                          }
+            }
           } else {
             echo "<p class='error-message'>Receita não encontrada.</p>";
           }
@@ -200,9 +201,10 @@
       echo "<p class='warning-message'>ID da receita não foi especificado.</p>";
     }
     $pdo = null;
-  
+
     ?>
   </div>
-<?php   require_once 'footer.php'?>
+  <?php require_once 'footer.php' ?>
 </body>
+
 </html>

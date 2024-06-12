@@ -10,10 +10,10 @@
 </head>
 
 <body>
-  <!-- <?php require_once '../../pages/header.php'; ?> -->
-  <?php require_once 'menu.php'; ?>
+    <!-- <?php require_once '../../pages/header.php'; ?> -->
+    <?php require_once 'menu.php'; ?>
     <h1>Cadastrar Administrador</h1>
-    
+
 
 
     <form enctype="multipart/form-data" method="post" action="../cadastro.php" class="form" onsubmit="return validateForm()">
@@ -61,7 +61,7 @@
         </div>
     </form>
 
-   
+
 
     <script>
         function validateForm() {

@@ -59,9 +59,9 @@
                     echo "<h3><a href='exibirReceita.php?recipe_id=" . htmlspecialchars($favorito['id']) . "' class='receita-link'>" . htmlspecialchars($favorito['nome']) . "</a></h3>";
                     echo "<p class='info'>Tempo de Preparo: " . htmlspecialchars($favorito['tempoPreparo']) . " minutos</p>";
                     echo "<p class='info'>Custo: R$ " . number_format($favorito['custo'], 2, ',', '.') . "</p>";
-                    ?>
-                     <a href="receitaFavorita.php?recipe_id=<?php echo htmlspecialchars($favorito['id']); ?>" class="button">Ver Receita</a>
-                    <?php
+    ?>
+                    <a href="receitaFavorita.php?recipe_id=<?php echo htmlspecialchars($favorito['id']); ?>" class="button">Ver Receita</a>
+                <?php
                     echo "</li>";
                 }
                 echo "</ul>";
@@ -84,7 +84,7 @@
                 }
                 echo "</div>";
             } else {
-    ?>
+                ?>
                 <div class="naoCadastrada">
                     <div class="img">
                         <img src="../assets/img/coracaoPartido.png" />

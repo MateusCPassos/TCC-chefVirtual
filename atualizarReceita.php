@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["recipe_id"])) {
         }
     }
 
-    // Se uma nova foto foi enviada, atualiza o caminho da foto no banco de dados
+    // Se uma nova foto foi enviada e atualiza o caminho da foto no banco de dados
     if (!empty($photo_path)) {
         $sql = "UPDATE prato SET nome = ?, modoPreparo = ?, custo = ?, tempoPreparo = ?, observacoes = ?, categoria_id = ?, foto = ? WHERE id = ?";
         $params = [$name, $modePreparation, $cost, $preparation_time, $observations, $category_id, $photo_path, $recipe_id];
@@ -54,4 +54,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["recipe_id"])) {
 }
 
 $pdo = null;
-?>

@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Adição de material
             $material_nome = isset($_POST["material_nome"]) ? $_POST["material_nome"] : '';
 
-            // Busca o ID do material com base no nome fornecido
+            // Busca o material com base no nome fornecido
             $sql_select_material_id = "SELECT id FROM materiais WHERE nomeMaterial = ?";
             $stmt_select_material_id = $pdo->prepare($sql_select_material_id);
             $stmt_select_material_id->execute([$material_nome]);
@@ -63,8 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             }
         }
-        
-        // Redireciona de volta para a página de cadastro de materiais
+
+        // Redireciona de volta para a página
         header("Location: pages/cadastrarReceitas2.php?recipe_id=" . $recipe_id);
         exit();
     } else {
@@ -73,4 +73,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $pdo = null;
-?>

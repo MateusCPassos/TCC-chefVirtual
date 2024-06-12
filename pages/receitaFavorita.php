@@ -167,19 +167,18 @@
             $stmt_avaliacoes->execute([$recipe_id]);
             $avaliacoes = $stmt_avaliacoes->fetchAll(PDO::FETCH_ASSOC);
             foreach ($avaliacoes as $avaliacao) {
-
-             //echo "<div class='avaliacao'><img src='../" . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'><strong>" . htmlspecialchars($avaliacao['usuario_nome']) . "</strong> (" . htmlspecialchars($avaliacao['data']) . "): " . htmlspecialchars($avaliacao['avaliacaoDoPrato']) . "</div>";
-             echo "<div class='avaliacao'>";
-             // Verifica se a foto do usuário existe no local especificado
-             if (!empty($avaliacao['usuario_foto']) && file_exists("../" . htmlspecialchars($avaliacao['usuario_foto']))) {
-                 // Se existir, usa a primeira rota
-                 echo "<img src='../" . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'>";
-             } else {
-                 // Se não existir, usa a segunda rota
-                 echo "<img src=' " . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'>";
-             }
-             echo "<strong>" . htmlspecialchars($avaliacao['usuario_nome']) . "</strong> (" . htmlspecialchars($avaliacao['data']) . "): " . htmlspecialchars($avaliacao['avaliacaoDoPrato']) . "</div>";
-                         }
+              //echo "<div class='avaliacao'><img src='../" . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'><strong>" . htmlspecialchars($avaliacao['usuario_nome']) . "</strong> (" . htmlspecialchars($avaliacao['data']) . "): " . htmlspecialchars($avaliacao['avaliacaoDoPrato']) . "</div>";
+              echo "<div class='avaliacao'>";
+              // Verifica se a foto do usuário existe
+              if (!empty($avaliacao['usuario_foto']) && file_exists("../" . htmlspecialchars($avaliacao['usuario_foto']))) {
+                // Se existir, usa a primeira rota
+                echo "<img src='../" . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'>";
+              } else {
+                // Se não existir, usa a segunda rota
+                echo "<img src=' " . htmlspecialchars($avaliacao['usuario_foto']) . "' alt='Foto do Usuário'>";
+              }
+              echo "<strong>" . htmlspecialchars($avaliacao['usuario_nome']) . "</strong> (" . htmlspecialchars($avaliacao['data']) . "): " . htmlspecialchars($avaliacao['avaliacaoDoPrato']) . "</div>";
+            }
           } else {
             echo "<p class='error-message'>Receita não encontrada.</p>";
           }

@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $comments = isset($_POST["comments"]) ? trim($_POST["comments"]) : '';
     $category = isset($_POST["category"]) ? $_POST["category"] : '';
 
-    // Verifica se todos os campos obrigatórios estão preenchidos
+    // Verifica se todos os campos estão preenchidos
     if (empty($nameRecipe) || empty($modePreparation) || empty($price) || empty($timePreparation) || empty($comments) || empty($category)) {
         echo "Por favor, preencha todos os campos.";
     } else {
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 
-        // Insere o novo prato com a imagem no banco de dados
+        //Insere o novo prato 
         $sql = "INSERT INTO prato (nome, modoPreparo, custo, tempoPreparo, observacoes, categoria_id, usuario_id, foto) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $pdo->prepare($sql);
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Recupera o ID da receita recém inserida
                 $recipe_id = $pdo->lastInsertId();
 
-                // Redireciona para a segunda tela de cadastro, passando o ID da receita
+                // Redireciona para a segunda tela de cadastro
                 header("Location: pages/cadastrarReceitas2.php?recipe_id=" . $recipe_id);
                 exit;
             } else {
@@ -56,4 +56,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $pdo = null;
-?>

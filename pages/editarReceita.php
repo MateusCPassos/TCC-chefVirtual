@@ -26,7 +26,7 @@
         if ($stmt->execute([$recipe_id, $user_id])) {
             if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $name = $row['nome'];
-                $modePreparation = $row['modoPreparo']; 
+                $modePreparation = $row['modoPreparo'];
                 $cost = $row['custo'];
                 $preparation_time = $row['tempoPreparo'];
                 $observations = $row['observacoes'];
@@ -48,36 +48,36 @@
                         <input type="hidden" name="recipe_id" value="<?php echo $recipe_id; ?>">
                         <div class="form-group">
                             <label for="photo" class="input-label">Foto do Prato:</label>
-                            <?php if (!empty($photo)): ?>
+                            <?php if (!empty($photo)) : ?>
                                 <img src="../<?php echo $photo; ?>" alt="Foto do Prato" style="max-width: 200px; max-height: 200px;">
-                            <?php else: ?>
+                            <?php else : ?>
                                 <p>Foto não disponível.</p>
                             <?php endif; ?>
                             <input type="file" id="photo" name="photo" class="input-field">
                         </div>
-                        <div class="form-group"> 
-                            <label for="name" class="input-label">Nome da Receita:</label> 
-                            <input type="text" id="name" name="name" value="<?php echo $name; ?>" required class="input-field"> 
+                        <div class="form-group">
+                            <label for="name" class="input-label">Nome da Receita:</label>
+                            <input type="text" id="name" name="name" value="<?php echo $name; ?>" required class="input-field">
                         </div>
-                        <div class="form-group"> 
-                            <label for="modePreparation" class="input-label">Modo de Preparo:</label> 
-                            <textarea id="modePreparation" name="modePreparation" rows="4" required class="input-field"><?php echo $modePreparation; ?></textarea> 
+                        <div class="form-group">
+                            <label for="modePreparation" class="input-label">Modo de Preparo:</label>
+                            <textarea id="modePreparation" name="modePreparation" rows="4" required class="input-field"><?php echo $modePreparation; ?></textarea>
                         </div>
-                        <div class="form-group"> 
-                            <label for="cost" class="input-label">Custo:</label> 
-                            <input type="text" id="cost" name="cost" value="<?php echo $cost; ?>" required class="input-field"> 
+                        <div class="form-group">
+                            <label for="cost" class="input-label">Custo:</label>
+                            <input type="text" id="cost" name="cost" value="<?php echo $cost; ?>" required class="input-field">
                         </div>
-                        <div class="form-group"> 
-                            <label for="preparation_time" class="input-label">Tempo de Preparo:</label> 
-                            <input type="text" id="preparation_time" name="preparation_time" value="<?php echo $preparation_time; ?>" required class="input-field"> 
+                        <div class="form-group">
+                            <label for="preparation_time" class="input-label">Tempo de Preparo:</label>
+                            <input type="text" id="preparation_time" name="preparation_time" value="<?php echo $preparation_time; ?>" required class="input-field">
                         </div>
-                        <div class="form-group"> 
-                            <label for="observations" class="input-label">Observações:</label> 
-                            <input type="text" id="observations" name="observations" value="<?php echo $observations; ?>" required class="input-field"> 
+                        <div class="form-group">
+                            <label for="observations" class="input-label">Observações:</label>
+                            <input type="text" id="observations" name="observations" value="<?php echo $observations; ?>" required class="input-field">
                         </div>
-                        <div class="form-group"> 
-                            <label for="category" class="input-label">Categoria:</label> 
-                            <select id="category" name="category" required class="input-field"> 
+                        <div class="form-group">
+                            <label for="category" class="input-label">Categoria:</label>
+                            <select id="category" name="category" required class="input-field">
                                 <?php echo $categories_options; ?>
                             </select>
                         </div>
@@ -99,7 +99,7 @@
     ?>
 
     <?php
-        include 'footer.php';
+    include 'footer.php';
     ?>
 </body>
 

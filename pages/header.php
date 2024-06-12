@@ -9,13 +9,13 @@
   <link rel="stylesheet" href="../fontawesome/css/all.min.css">
   <link rel="stylesheet" href="../css/sidebar.css">
   <link rel="shortcut icon" href="../assets/img/icone.png">
-  </head>
+</head>
 
 <body>
   <header>
     <nav class="nav-bar">
       <div class="logo">
-        <a href="index.php"><img src="../assets/img/logoFinal.png" ></a>
+        <a href="index.php"><img src="../assets/img/logoFinal.png"></a>
       </div>
 
       <div class="menu-icon">

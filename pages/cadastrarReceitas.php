@@ -90,27 +90,5 @@ require_once "header.php";
       <button type="submit">Cadastrar</button>
     </div>
   </form>
-
-  <script>
-    function validateForm() {
-      var price = document.getElementById("price").value;
-      var timePreparation = document.getElementById("timePreparation").value;
-
-      // Verifica se o preço contém apenas números
-      if (!(/^\d*\.?\d*$/.test(price))) {
-        alert("Por favor, insira apenas números no campo de preço.");
-        return false;
-      }
-
-      // Verifica se o tempo de preparo contém apenas números
-      if (!(/^\d+$/.test(timePreparation))) {
-        alert("Por favor, insira apenas números no campo de tempo de preparo.");
-        return false;
-      }
-
-      return true;
-    }
-  </script>
 </body>
-
 </html>

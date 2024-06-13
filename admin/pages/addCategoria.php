@@ -53,6 +53,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["tipoUsuario"] !== 'admin') {
                 alert("Por favor, preencha o nome da categoria!");
                 return false;
             }
+            return true;
         }
     </script>
 </body>

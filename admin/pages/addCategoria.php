@@ -4,7 +4,7 @@ require_once "../../config/conecta.php";
 
 // Verifica se o usuário está logado e é admin
 if (!isset($_SESSION["loggedin"]) || $_SESSION["tipoUsuario"] !== 'admin') {
-    header("Location: admin_login.php");
+    header("Location: login.php");
     exit;
 }
 ?>

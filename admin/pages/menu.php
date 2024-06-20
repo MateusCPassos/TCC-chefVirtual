@@ -13,7 +13,10 @@
     <ul>
       <li><a href="cadastrar.php">cadastrar</a></li>
       <li><a href="addCategoria.php">adionar categoria</a></li>
+      <li><a href="addMaterial.php">adicionar material</a></li>
+      <li><a href="addIngrediente.php">adicionar ingrediente</a></li>
       <li><a href="listarReceitas.php">Listar receitas</a></li>
+      
     </ul>
   </nav>
 </body>
